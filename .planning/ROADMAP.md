@@ -34,11 +34,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. state.json persists current stage, active feature, and progress across sessions
   3. Each stage's output is registered in a manifest and available as required input to the next stage
   4. A role matrix document clearly states which skill (GSD, PDCA, ADR, retro, work-log) handles what within each stage
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
+- [ ] 01-01-PLAN.md — Create references/ and templates/ foundation artifacts (role-matrix, stage-transitions, project-detection, skill-invocation, state.json, manifest.json)
+- [ ] 01-02-PLAN.md — Rewrite SKILL.md: remove muse hardcoding, implement progressive disclosure
 
 ### Phase 2: E2E Spec Format
 **Goal**: A well-defined, machine-parseable E2E spec format exists that captures the full feature chain from screen to error handling
