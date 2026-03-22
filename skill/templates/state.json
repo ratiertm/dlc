@@ -1,0 +1,25 @@
+{
+  "version": "1.0",
+  "project": {
+    "name": "",
+    "type": "auto",
+    "detected_type": null,
+    "confirmed": false
+  },
+  "current": {
+    "stage": 1,
+    "stage_name": "PLAN",
+    "status": "not_started",
+    "feature": null,
+    "mode": "feature"
+  },
+  "progress": {
+    "stages_completed": [],
+    "current_stage_started_at": null,
+    "last_transition_at": null
+  },
+  "session": {
+    "last_active": null,
+    "resume_hint": ""
+  }
+}

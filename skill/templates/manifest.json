@@ -1,0 +1,61 @@
+{
+  "version": "1.0",
+  "feature": "",
+  "artifacts": {
+    "1_plan": {
+      "required_inputs": [],
+      "outputs": [],
+      "completed_at": null
+    },
+    "2_do": {
+      "required_inputs": ["1_plan"],
+      "outputs": [],
+      "completed_at": null
+    },
+    "3_test": {
+      "required_inputs": ["2_do"],
+      "outputs": [],
+      "completed_at": null
+    },
+    "4_commit": {
+      "required_inputs": ["3_test"],
+      "outputs": [],
+      "completed_at": null
+    },
+    "5_deploy": {
+      "required_inputs": ["4_commit"],
+      "outputs": [],
+      "completed_at": null
+    },
+    "6_deploy_test": {
+      "required_inputs": ["5_deploy"],
+      "outputs": [],
+      "completed_at": null
+    },
+    "7_document": {
+      "required_inputs": ["6_deploy_test"],
+      "outputs": [],
+      "completed_at": null
+    },
+    "8_retrospect": {
+      "required_inputs": ["7_document"],
+      "outputs": [],
+      "completed_at": null
+    },
+    "9_promote": {
+      "required_inputs": ["8_retrospect"],
+      "outputs": [],
+      "completed_at": null
+    }
+  },
+  "gate_rules": {
+    "1_to_2": "artifacts.1_plan.outputs.length > 0",
+    "2_to_3": "artifacts.2_do.outputs.length > 0",
+    "3_to_4": "artifacts.3_test.outputs.length > 0",
+    "4_to_5": "artifacts.4_commit.outputs.length > 0",
+    "5_to_6": "artifacts.5_deploy.outputs.length > 0",
+    "6_to_7": "artifacts.6_deploy_test.outputs.length > 0",
+    "7_to_8": "artifacts.7_document.outputs.length > 0",
+    "8_to_9": "artifacts.8_retrospect.outputs.length > 0"
+  }
+}
