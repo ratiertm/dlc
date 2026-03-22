@@ -7,7 +7,7 @@
 
 ### E2E Feature Spec (핵심)
 
-- [ ] **SPEC-01**: 각 기능을 화면→연결→처리→응답→에러 5단계 체인으로 명세하는 포맷 정의
+- [x] **SPEC-01**: 각 기능을 화면→연결→처리→응답→에러 5단계 체인으로 명세하는 포맷 정의
 - [ ] **SPEC-02**: E2E Spec을 PLAN에서 작성하고 사용자와 합의하는 워크플로
 - [ ] **SPEC-03**: DO에서 E2E Spec의 각 단계를 구현 체크리스트로 추적
 - [ ] **SPEC-04**: TEST에서 E2E Spec의 각 단계별 pass/fail 검증 및 리포트 생성
@@ -95,7 +95,7 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SPEC-01 | Phase 2 | Pending |
+| SPEC-01 | Phase 2 | Complete |
 | SPEC-02 | Phase 4 | Pending |
 | SPEC-03 | Phase 5 | Pending |
 | SPEC-04 | Phase 6 | Pending |

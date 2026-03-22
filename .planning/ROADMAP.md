@@ -13,7 +13,7 @@ This roadmap delivers a Claude Code skill that orchestrates the full development
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [ ] **Phase 1: Foundation** - Generic skill scaffold, state management, artifact registry, role matrix
-- [ ] **Phase 2: E2E Spec Format** - Define the 5-layer spec chain format and spec ID system
+- [x] **Phase 2: E2E Spec Format** - Define the 5-layer spec chain format and spec ID system (completed 2026-03-22)
 - [ ] **Phase 3: Prototype Format** - Define the single-file HTML+JS prototype template with data attributes and manifest
 - [ ] **Phase 4: PLAN Stage** - Spec generation + prototype generation + user agreement gate
 - [ ] **Phase 5: DO Stage** - Spec-as-checklist implementation + deviation logging + ADR detection
@@ -182,7 +182,7 @@ Note: Phase 8 depends only on Phase 1 and can run in parallel with Phases 2-7 if
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 0/2 | Not started | - |
-| 2. E2E Spec Format | 0/1 | Not started | - |
+| 2. E2E Spec Format | 1/1 | Complete   | 2026-03-22 |
 | 3. Prototype Format | 0/1 | Not started | - |
 | 4. PLAN Stage | 0/2 | Not started | - |
 | 5. DO Stage | 0/2 | Not started | - |
