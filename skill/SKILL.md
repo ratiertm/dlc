@@ -123,61 +123,85 @@ Pipeline:
 
 ### Stage 5: DEPLOY
 
-Purpose: Ship to target environment.
-Tool: Project-type-specific (see templates/)
+Purpose: Ship to target environment using project-type-specific checklist. User executes deploy steps; Claude tracks progress.
+Primary: dev-lifecycle (deploy orchestration)
+Supporting: Project-specific tools
 Outputs: Deploy log, deploy artifact
 
-Note: Deploy steps vary by project type. See `$CLAUDE_SKILL_DIR/references/project-detection.md` for supported types. Stage-specific checklists will be provided based on detected project type.
+Read: `$CLAUDE_SKILL_DIR/references/deploy-stage.md`
+
+Pipeline:
+1. Stage init (gate 4_to_5, mode skip check)
+2. Project type resolution
+3. Deploy checklist (type-specific)
+4. Deploy execution (user-guided)
+5. Completion
 
 ### Stage 6: DEPLOY TEST
 
-Purpose: Verify deployment in target environment.
-Tool: Project-type-specific smoke tests
+Purpose: Verify deployment with 3-category smoke tests: health, core flow, resources.
+Primary: dev-lifecycle (smoke test orchestration)
+Supporting: Project-specific tools
 Outputs: Smoke test report
 
-Verification targets:
-- Service health check (endpoint responds)
-- Authentication flow works
-- Core user flow completes end-to-end
-- Resource utilization is within bounds
-- Device/browser-specific checks where applicable
+Read: `$CLAUDE_SKILL_DIR/references/deploy-test-stage.md`
 
-On failure: check logs, rollback or hotfix.
+Pipeline:
+1. Stage init (gate 5_to_6, mode skip check)
+2. Smoke test plan
+3. Health check
+4. Core flow verification
+5. Resource check
+6. Completion
 
 ### Stage 7: DOCUMENT
 
-Purpose: Record project state visually and textually after successful deploy.
-Primary skill: canvas-design (optional)
-Supporting: Mermaid diagrams (inline)
-Outputs: Architecture doc, sequence diagrams, README/CLAUDE.md updates
+Purpose: Record project state with Mermaid architecture/sequence diagrams and update README/CLAUDE.md.
+Primary: dev-lifecycle (documentation orchestration)
+Supporting: Mermaid (inline), canvas-design (optional)
+Outputs: Architecture doc, sequence diagrams
 
-Documentation targets:
-- Architecture diagram (system overview, component relationships)
-- Sequence diagrams (key user flows)
-- CLAUDE.md / README.md updates (ADR list, retro links, deploy info)
+Read: `$CLAUDE_SKILL_DIR/references/document-stage.md`
+
+Pipeline:
+1. Stage init (gate 6_to_7, mode skip check)
+2. Architecture diagram (Mermaid)
+3. Sequence diagrams (Mermaid)
+4. README/CLAUDE.md update
+5. Completion
 
 ### Stage 8: RETROSPECT
 
-Purpose: Reflect on the phase. Capture lessons before they fade.
-Primary skill: gsd-retrospective
-Supporting: ADR (gap check), work-log
-Outputs: Retrospective document, missing ADRs, CLAUDE.md update
+Purpose: Reflect on the feature cycle. Delegate to gsd-retrospective, check ADR gaps, record work log, update Living State.
+Primary: dev-lifecycle (retrospective orchestration)
+Supporting: gsd-retrospective, ADR (gap check), work-log
+Outputs: Retrospective document, missing ADRs (optional)
 
-Steps:
-1. Generate retrospective (what went well/wrong/surprising)
-2. Link key decisions to ADRs
-3. Identify technical debt
-4. Record lessons for next phase
-5. Check for unrecorded decisions, suggest ADR creation
-6. Update CLAUDE.md with retro link and key lessons
+Read: `$CLAUDE_SKILL_DIR/references/retrospect-stage.md`
+
+Pipeline:
+1. Stage init (gate 7_to_8, mode skip check)
+2. Retrospective generation (delegate to gsd-retrospective)
+3. ADR gap check
+4. Work log (delegate to work-log)
+5. Living State update
+6. Completion
 
 ### Stage 9: PROMOTE
 
-Purpose: Share the work. Demo, announce, celebrate.
-Tool: Manual or automated (optional)
-Outputs: Demo recording, announcement (optional)
+Purpose: Optionally share the work via demo, announcement, or screenshots. Skip without penalty.
+Primary: dev-lifecycle (optional promotion)
+Supporting: None
+Outputs: Demo, announcement (optional)
 
-This stage is optional. Useful for: portfolio, team demos, stakeholder updates, app store screenshots.
+Read: `$CLAUDE_SKILL_DIR/references/promote-stage.md`
+
+Pipeline:
+1. Stage init (gate 8_to_9)
+2. Skip check (default: skip)
+3. Demo type selection
+4. Demo creation guidance
+5. Completion
 
 ## State Management
 
