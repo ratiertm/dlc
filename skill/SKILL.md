@@ -54,16 +54,18 @@ On session start (or after compaction):
 
 ### Stage 1: PLAN
 
-Purpose: Define scope, review lessons, create execution plan.
-Primary skill: GSD (`/gsd:plan-phase`, `/gsd:discuss-phase`)
-Supporting: PDCA (`/pdca plan`), ADR (trade-off detection)
-Outputs: PLAN.md, pre-flight check, PDCA plan entry
+Purpose: Define scope, review lessons, generate E2E spec and clickable prototype, get user agreement.
+Primary: dev-lifecycle (spec + prototype generation)
+Supporting: GSD (broader project planning if needed), PDCA (`/pdca plan`), ADR (trade-off detection)
+Outputs: E2E spec (.spec.md), clickable prototype (.prototype.html), pre-flight check
 
-Pre-flight checks:
-- Read previous retrospective "Lessons for Next Phase"
-- Surface related ADRs for the affected domain
-- Check PDCA status for unresolved gaps
-- Scan for technical debt (TODO/FIXME/HACK)
+Read: `$CLAUDE_SKILL_DIR/references/plan-stage.md`
+
+Pipeline:
+1. Preflight check (retrospective lessons first, non-blocking warnings)
+2. E2E Spec generation (fill spec-template.md, all 5 chain steps)
+3. Prototype generation (from spec, dual spec linking)
+4. Agreement gate (user clicks prototype in browser, hard block until approval)
 
 ### Stage 2: DO
 
