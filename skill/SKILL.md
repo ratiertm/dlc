@@ -37,22 +37,25 @@ Full development lifecycle from planning to production, with built-in rework pre
 On session start (or after compaction):
 
 1. **Read state:** Load `.lifecycle/state.json`
-   - If not exists: initialize from `$CLAUDE_SKILL_DIR/templates/state.json`, create `.lifecycle/` directory
-1.5. **Read Living State (if exists):** Load `.lifecycle/LIVING-STATE.md`
+   - If not exists AND `.lifecycle/` directory exists: **Reconcile** (Read: `$CLAUDE_SKILL_DIR/references/state-reconcile.md`)
+   - If not exists AND no `.lifecycle/`: Initialize from `$CLAUDE_SKILL_DIR/templates/state.json`, create `.lifecycle/` directory
+2. **Read Living State (if exists):** Load `.lifecycle/LIVING-STATE.md`
    - This single file restores full project context: current state, active settings, recent decisions, event timeline, key ADRs, and resume hint
    - If not exists: skip (first session or pre-Phase-8 project)
    - If exists: use its contents to inform all subsequent interactions in this session
-2. **Display position:**
+   - Note: This is also loaded automatically by SessionStart hook (.claude/settings.json)
+3. **Display position:**
    ```
    Dev Lifecycle: Stage {N} {NAME} -- {STATUS}
    Feature: {feature_name}
+   Mode: {mode} (skipping stages: {skippable_list or "none"})
    Resume: {resume_hint}
    ```
-3. **First run:** Detect project type
+4. **First run:** Detect project type
    - Read: `$CLAUDE_SKILL_DIR/references/project-detection.md`
    - Auto-detect from marker files, present to user for confirmation
    - Store confirmed type in `state.json`
-4. **Check gates:** Verify manifest.json for current stage requirements
+5. **Check gates:** Verify manifest.json for current stage requirements
 
 ## Stage Overview
 

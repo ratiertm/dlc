@@ -47,6 +47,31 @@ When a stage is skipped:
 2. The gate condition for the next stage is automatically satisfied
 3. The skip is recorded in the transition history
 
+## Auto-Skip Procedure
+
+When transitioning from completed Stage N, apply mode-based auto-skip:
+
+1. Determine next_stage = N + 1
+2. Read current mode from state.json (`current.mode`)
+3. Look up skippable stages for current mode (see Mode-Based Stage Skipping table)
+4. If next_stage is in the skippable list:
+   a. Set stage next_stage status to "skipped" in state.json
+   b. Record skip in .lifecycle/history/ with entry:
+      ```json
+      {
+        "timestamp": "ISO-8601",
+        "from_stage": N,
+        "to_stage": next_stage,
+        "gate_result": "skipped",
+        "reason": "Stage skipped by {mode} mode",
+        "mode": "{mode}"
+      }
+      ```
+   c. Increment: N = next_stage, repeat from step 1
+5. If next_stage is NOT skippable: transition normally (continue with standard Transition Procedure)
+
+Note: Auto-skip cascades -- if stages 5 and 6 are both skippable, transitioning from 4 skips to 7 in one pass.
+
 ## Transition Procedure
 
 When transitioning from Stage N to Stage N+1:
@@ -57,6 +82,7 @@ When transitioning from Stage N to Stage N+1:
    - Update state.json: `current.stage = N+1`, `current.stage_name = <next stage name>`, `current.status = "not_started"`
    - Update `progress.last_transition_at` with current ISO 8601 timestamp
    - Add N to `progress.stages_completed` array
+3.5. **Check auto-skip:** If next stage is skippable in current mode, run Auto-Skip Procedure instead of entering next stage.
 4. **If gate fails:**
    - Set `current.status = "blocked"`
    - Display missing artifacts to user:
