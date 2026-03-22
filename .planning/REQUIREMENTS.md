@@ -24,7 +24,7 @@
 
 ### Foundation
 
-- [ ] **FOUND-01**: muse 하드코딩 제거 — 모든 프로젝트 타입에서 사용 가능한 범용 스킬 전환
+- [x] **FOUND-01**: muse 하드코딩 제거 — 모든 프로젝트 타입에서 사용 가능한 범용 스킬 전환
 - [x] **FOUND-02**: state.json으로 현재 Stage, 진행 상태, 활성 기능 추적 (세션 간 유지)
 - [x] **FOUND-03**: Stage Artifact Manifest — 각 Stage 산출물을 기록하고 다음 Stage 필수 입력으로 연결
 - [ ] **FOUND-04**: 상황별 실행 모드(핫픽스/피처/릴리즈/마일스톤) — 불필요한 Stage 생략 가능
@@ -106,7 +106,7 @@
 | PROTO-04 | Phase 3 | Pending |
 | PROTO-05 | Phase 4 | Pending |
 | PROTO-06 | Phase 6 | Pending |
-| FOUND-01 | Phase 1 | Pending |
+| FOUND-01 | Phase 1 | Complete |
 | FOUND-02 | Phase 1 | Complete |
 | FOUND-03 | Phase 1 | Complete |
 | FOUND-04 | Phase 10 | Pending |
