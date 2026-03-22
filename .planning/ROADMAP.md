@@ -106,11 +106,11 @@ Plans:
   2. Prototype manifest is structurally compared against actual implementation to detect missing screens, actions, or fields
   3. TEST produces specific manual test steps the user can execute for behavioral verification
   4. Both Claude's structural verification and user's behavioral verification are required before proceeding
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 06-01: TBD
-- [ ] 06-02: TBD
+- [ ] 06-01-PLAN.md — Create TEST Stage adapter reference (per-step spec verification, prototype structural comparison, user behavioral checklist, dual verification gate)
+- [ ] 06-02-PLAN.md — Update SKILL.md and role-matrix.md to reflect dev-lifecycle as primary for Stage 3
 
 ### Phase 7: COMMIT Stage
 **Goal**: The COMMIT stage blocks until all spec steps pass verification, then creates a why-centric commit with artifact references
