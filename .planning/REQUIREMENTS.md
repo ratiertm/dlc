@@ -15,10 +15,10 @@
 
 ### User Interaction Prototype (핵심)
 
-- [ ] **PROTO-01**: PLAN에서 단일 HTML 파일(vanilla HTML+CSS+JS)로 클릭 가능한 프로토타입 생성
-- [ ] **PROTO-02**: hash 기반 SPA 라우팅으로 멀티스크린 네비게이션 구현 (서버 불필요)
-- [ ] **PROTO-03**: data-* 속성(data-screen, data-action, data-field, data-error)으로 UI 요소에 의미 부여
-- [ ] **PROTO-04**: 내장 JSON manifest로 프로토타입 구조를 기계 파싱 가능하게 유지
+- [x] **PROTO-01**: PLAN에서 단일 HTML 파일(vanilla HTML+CSS+JS)로 클릭 가능한 프로토타입 생성
+- [x] **PROTO-02**: hash 기반 SPA 라우팅으로 멀티스크린 네비게이션 구현 (서버 불필요)
+- [x] **PROTO-03**: data-* 속성(data-screen, data-action, data-field, data-error)으로 UI 요소에 의미 부여
+- [x] **PROTO-04**: 내장 JSON manifest로 프로토타입 구조를 기계 파싱 가능하게 유지
 - [ ] **PROTO-05**: 사용자가 프로토타입을 브라우저에서 클릭하여 확인하고 피드백하는 합의 게이트
 - [ ] **PROTO-06**: TEST에서 프로토타입의 manifest와 실제 구현을 구조적으로 비교하여 누락 검출
 
@@ -100,10 +100,10 @@
 | SPEC-03 | Phase 5 | Pending |
 | SPEC-04 | Phase 6 | Pending |
 | SPEC-05 | Phase 5 | Pending |
-| PROTO-01 | Phase 3 | Pending |
-| PROTO-02 | Phase 3 | Pending |
-| PROTO-03 | Phase 3 | Pending |
-| PROTO-04 | Phase 3 | Pending |
+| PROTO-01 | Phase 3 | Complete |
+| PROTO-02 | Phase 3 | Complete |
+| PROTO-03 | Phase 3 | Complete |
+| PROTO-04 | Phase 3 | Complete |
 | PROTO-05 | Phase 4 | Pending |
 | PROTO-06 | Phase 6 | Pending |
 | FOUND-01 | Phase 1 | Complete |
