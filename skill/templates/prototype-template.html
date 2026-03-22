@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- SECTION 1: HEAD -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{Feature Name} - Prototype</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: #f5f5f5; padding: 16px; }
+    #app { max-width: 480px; margin: 0 auto; }
+    .screen { display: none; background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 24px; }
+    .screen.active { display: block; }
+    h2 { margin-bottom: 16px; color: #333; }
+    input, select, textarea {
+      width: 100%; padding: 10px; border: 1px solid #ccc;
+      border-radius: 4px; margin-bottom: 12px; font-size: 14px;
+    }
+    button, .btn {
+      display: inline-block; padding: 10px 20px; background: #2563eb;
+      color: #fff; border: none; border-radius: 4px; cursor: pointer;
+      font-size: 14px; text-decoration: none;
+    }
+    button:hover, .btn:hover { background: #1d4ed8; }
+    .error {
+      background: #fef2f2; border: 1px solid #fca5a5; color: #dc2626;
+      padding: 12px; border-radius: 4px; margin-bottom: 12px; display: none;
+    }
+    .success {
+      background: #f0fdf4; border: 1px solid #86efac; color: #16a34a;
+      padding: 12px; border-radius: 4px;
+    }
+    .field-group { margin-bottom: 12px; }
+    .field-group label {
+      display: block; margin-bottom: 4px; font-weight: 600;
+      color: #555; font-size: 13px;
+    }
+    .nav-link {
+      color: #2563eb; text-decoration: underline; cursor: pointer;
+      font-size: 14px;
+    }
+    @media (min-width: 768px) { #app { max-width: 640px; } }
+  </style>
+</head>
+<body>
+
+  <!-- SECTION 2: MANIFEST -->
+  <script type="application/json" id="prototype-manifest">
+  {
+    "feature": "{feature-name}",
+    "specFile": "{feature-name}.spec.md",
+    "version": "1",
+    "generatedFrom": "e2e-{feature-name} spec",
+    "screens": ["{screen-1}", "{screen-2}"],
+    "specMapping": [
+      {"specId": "e2e-{feature}-001", "element": "[data-screen='{screen-1}']", "type": "Screen"},
+      {"specId": "e2e-{feature}-002", "element": "[data-action='{action-1}']", "type": "Connection"}
+    ],
+    "interactions": [
+      {
+        "screen": "{screen-1}",
+        "element": "[data-action='{action-1}']",
+        "action": "click",
+        "result": "navigate",
+        "target": "#{screen-2}"
+      }
+    ],
+    "fields": [
+      {
+        "screen": "{screen-1}",
+        "element": "[data-field='{field-1}']",
+        "type": "email",
+        "required": true
+      }
+    ],
+    "errorStates": [
+      {
+        "screen": "{screen-1}",
+        "trigger": "{error-condition}",
+        "element": "[data-error='{error-name}']",
+        "message": "{error message}"
+      }
+    ]
+  }
+  </script>
+
+  <!-- SECTION 3: SCREENS -->
+  <div id="app">
+    <div data-screen="{screen-1}" data-spec-id="e2e-{feature}-001" class="screen">
+      <h2>{Screen 1 Title}</h2>
+      <div data-error="{error-name}" data-spec-id="e2e-{feature}-005" class="error">
+        {Error message placeholder}
+      </div>
+      <div class="field-group">
+        <label for="{field-1}">{Field 1 Label}</label>
+        <input data-field="{field-1}" type="email" id="{field-1}" placeholder="{placeholder}" required>
+      </div>
+      <button data-action="{action-1}" data-spec-id="e2e-{feature}-002">{Action Label}</button>
+    </div>
+
+    <div data-screen="{screen-2}" data-spec-id="e2e-{feature}-004" class="screen">
+      <h2>{Screen 2 Title}</h2>
+      <div class="success">
+        Welcome, <span data-mock="user.name">{Mock Name}</span>
+      </div>
+      <a data-action="{back-action}" class="nav-link">{Back Link Label}</a>
+    </div>
+  </div>
+
+  <!-- SECTION 4: ENGINE -->
+  <script>
+    // --- Hash Router ---
+    function showScreen(id) {
+      document.querySelectorAll('.screen').forEach(function(s) {
+        s.classList.remove('active');
+      });
+      var target = document.querySelector('[data-screen="' + id + '"]');
+      if (target) target.classList.add('active');
+    }
+
+    function getDefaultScreen() {
+      var manifest = JSON.parse(
+        document.getElementById('prototype-manifest').textContent
+      );
+      return manifest.screens[0];
+    }
+
+    window.addEventListener('hashchange', function() {
+      showScreen(location.hash.slice(1) || getDefaultScreen());
+    });
+
+    // --- Action Delegation ---
+    document.addEventListener('click', function(e) {
+      var actionEl = e.target.closest('[data-action]');
+      if (actionEl) {
+        e.preventDefault();
+        handleAction(actionEl.dataset.action, actionEl);
+      }
+    });
+
+    function handleAction(action, element) {
+      // Feature-specific action logic goes here.
+      // Replace this stub with real interaction handling.
+    }
+
+    // --- Mock Data Population ---
+    function populateScreen(screenId) {
+      var screen = document.querySelector('[data-screen="' + screenId + '"]');
+      if (!screen) return;
+      screen.querySelectorAll('[data-mock]').forEach(function(el) {
+        var path = el.dataset.mock;
+        var value = resolvePath(MOCK, path);
+        if (value !== undefined) el.textContent = value;
+      });
+    }
+
+    function resolvePath(obj, path) {
+      return path.split('.').reduce(function(acc, key) {
+        return acc && acc[key];
+      }, obj);
+    }
+
+    // --- Mock Data (replace per feature) ---
+    var MOCK = {};
+
+    // --- Initialize ---
+    showScreen(location.hash.slice(1) || getDefaultScreen());
+  </script>
+
+</body>
+</html>
