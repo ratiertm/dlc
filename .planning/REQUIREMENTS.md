@@ -9,9 +9,9 @@
 
 - [x] **SPEC-01**: 각 기능을 화면→연결→처리→응답→에러 5단계 체인으로 명세하는 포맷 정의
 - [x] **SPEC-02**: E2E Spec을 PLAN에서 작성하고 사용자와 합의하는 워크플로
-- [ ] **SPEC-03**: DO에서 E2E Spec의 각 단계를 구현 체크리스트로 추적
+- [x] **SPEC-03**: DO에서 E2E Spec의 각 단계를 구현 체크리스트로 추적
 - [ ] **SPEC-04**: TEST에서 E2E Spec의 각 단계별 pass/fail 검증 및 리포트 생성
-- [ ] **SPEC-05**: DO 중 Spec에서 이탈 시 deviation log에 기록하는 메커니즘
+- [x] **SPEC-05**: DO 중 Spec에서 이탈 시 deviation log에 기록하는 메커니즘
 
 ### User Interaction Prototype (핵심)
 
@@ -40,7 +40,7 @@
 ### Pipeline — Inner Loop (Stage 1-4)
 
 - [x] **PIPE-01**: Stage 1 PLAN — preflight check + E2E Spec 작성 + Prototype 생성 + 사용자 합의 게이트
-- [ ] **PIPE-02**: Stage 2 DO — Spec 기준 구현 + deviation log + ADR 자동 감지 + WHY+SEE 주석
+- [x] **PIPE-02**: Stage 2 DO — Spec 기준 구현 + deviation log + ADR 자동 감지 + WHY+SEE 주석
 - [ ] **PIPE-03**: Stage 3 TEST — E2E Spec 단계별 검증 + Prototype 구조 대조 + GSD verify + PDCA analyze
 - [ ] **PIPE-04**: Stage 4 COMMIT — why 중심 커밋 + ADR 참조 + artifact 존재 검증
 
@@ -97,9 +97,9 @@
 |-------------|-------|--------|
 | SPEC-01 | Phase 2 | Complete |
 | SPEC-02 | Phase 4 | Complete |
-| SPEC-03 | Phase 5 | Pending |
+| SPEC-03 | Phase 5 | Complete |
 | SPEC-04 | Phase 6 | Pending |
-| SPEC-05 | Phase 5 | Pending |
+| SPEC-05 | Phase 5 | Complete |
 | PROTO-01 | Phase 3 | Complete |
 | PROTO-02 | Phase 3 | Complete |
 | PROTO-03 | Phase 3 | Complete |
@@ -116,7 +116,7 @@
 | MEMO-03 | Phase 8 | Pending |
 | MEMO-04 | Phase 8 | Pending |
 | PIPE-01 | Phase 4 | Complete |
-| PIPE-02 | Phase 5 | Pending |
+| PIPE-02 | Phase 5 | Complete |
 | PIPE-03 | Phase 6 | Pending |
 | PIPE-04 | Phase 7 | Pending |
 | PIPE-05 | Phase 9 | Pending |
