@@ -10,11 +10,11 @@ This document maps all 9 stages of the dev-lifecycle pipeline to their primary a
 | 2 | DO | dev-lifecycle (spec-driven implementation) | PDCA (quality support), ADR (auto-detect decisions), WHY+SEE comments | Run spec checklist, track per-step status, log deviations, detect ADR moments |
 | 3 | TEST | dev-lifecycle (spec + prototype verification) | GSD (`/gsd:verify-work`), PDCA (`/pdca analyze`) | Run per-step spec verification, prototype structural comparison, generate behavioral checklist, enforce dual verification gate |
 | 4 | COMMIT | dev-lifecycle (verification gate + commit orchestration) | Git (direct), ADR (reference in commit msg) | Enforce verification gate, generate why-centric commit, register outputs |
-| 5 | DEPLOY | Project-specific template | None | Provide deploy template, track deploy artifact |
-| 6 | DEPLOY TEST | Project-specific template | None | Provide smoke test template, gate next stage |
-| 7 | DOCUMENT | canvas-design (optional) | Mermaid (inline) | Trigger documentation generation |
-| 8 | RETROSPECT | gsd-retrospective | ADR (gap check), work-log | Invoke retro skill, update CLAUDE.md |
-| 9 | PROMOTE | Manual / optional | None | Provide promote checklist |
+| 5 | DEPLOY | dev-lifecycle (deploy orchestration) | Project-specific tools | Provide type-specific deploy checklist, track deploy progress, register artifacts |
+| 6 | DEPLOY TEST | dev-lifecycle (smoke test orchestration) | Project-specific tools | 3-category smoke test (health, core flow, resources), gate next stage |
+| 7 | DOCUMENT | dev-lifecycle (documentation orchestration) | Mermaid (inline), canvas-design (optional) | Generate Mermaid architecture + sequence diagrams, update README/CLAUDE.md |
+| 8 | RETROSPECT | dev-lifecycle (retrospective orchestration) | gsd-retrospective, ADR (gap check), work-log | Orchestrate retrospective, ADR gap check, work log, Living State update |
+| 9 | PROMOTE | dev-lifecycle (optional promotion) | None | Skip-or-proceed flow, demo creation guidance |
 
 ## Key Principle
 
@@ -43,6 +43,9 @@ When multiple skills could handle a task, dev-lifecycle follows this priority:
 | ADR auto-detection during Stage 2 | ADR runs in parallel with implementation. Both outputs are registered. |
 | dev-lifecycle vs Git in Stage 4 | dev-lifecycle is primary for COMMIT orchestration (verification gate, message generation, artifact validation). Git is the direct tool for commit execution. These are complementary. |
 | Manual skill invocation during any stage | Always allowed. dev-lifecycle tracks the output if active. |
+| dev-lifecycle vs project tools in Stage 5 | dev-lifecycle is primary orchestrator providing the deploy checklist. Project-specific tools (Vercel CLI, Docker, etc.) are the execution tools. User runs deploy commands, Claude tracks progress. |
+| dev-lifecycle vs gsd-retrospective in Stage 8 | dev-lifecycle is primary orchestrator. gsd-retrospective is the delegated skill that generates the retrospective document. dev-lifecycle coordinates the full flow (retro + ADR gap + work-log + Living State). |
+| dev-lifecycle vs canvas-design in Stage 7 | dev-lifecycle uses Mermaid by default for all diagrams. canvas-design is optional enhancement if user requests visual design tools. |
 
 ## Stage Output Types
 
