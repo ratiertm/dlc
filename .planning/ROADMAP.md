@@ -135,11 +135,11 @@ Plans:
   2. Lightweight decisions accumulate in a one-line-per-entry log without requiring full ADR ceremony
   3. A Living State Document exists that, when read at session start, restores full project context instantly
   4. ADR references appear as WHY+SEE comments in code, making future follow-up traceable
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 08-01: TBD
-- [ ] 08-02: TBD
+- [ ] 08-01-PLAN.md — Create memory artifact templates (settings changelog, decision log, Living State Document)
+- [ ] 08-02-PLAN.md — Wire memory update triggers into stage adapters and update SKILL.md with Living State + WHY+SEE cross-reference
 
 ### Phase 9: Outer Loop
 **Goal**: Stages 5-9 (DEPLOY, DEPLOY TEST, DOCUMENT, RETROSPECT, PROMOTE) are operational with project-type-aware templates
