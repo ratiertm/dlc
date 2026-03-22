@@ -76,11 +76,11 @@ Plans:
   2. User can open the prototype in a browser, click through all screens, and provide feedback
   3. PLAN does not complete until user explicitly approves both spec and prototype (hard agreement gate)
   4. Preflight check validates prerequisites before spec/prototype generation begins
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 04-01: TBD
-- [ ] 04-02: TBD
+- [ ] 04-01-PLAN.md — Create PLAN Stage adapter reference (preflight, spec generation, prototype generation, agreement gate)
+- [ ] 04-02-PLAN.md — Update SKILL.md, role-matrix.md, skill-invocation.md to reflect dev-lifecycle as primary for Stage 1
 
 ### Phase 5: DO Stage
 **Goal**: The DO stage uses the approved E2E spec as an implementation checklist, tracking per-layer completion and logging deviations
