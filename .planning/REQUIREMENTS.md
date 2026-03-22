@@ -54,8 +54,8 @@
 
 ### Skill Architecture
 
-- [ ] **ARCH-01**: SKILL.md 500줄 이하, 상세 로직은 references/ 분리 (progressive disclosure)
-- [ ] **ARCH-02**: 기존 스킬 수정 없이 호출 인터페이스만 정의 (adapter pattern)
+- [x] **ARCH-01**: SKILL.md 500줄 이하, 상세 로직은 references/ 분리 (progressive disclosure)
+- [x] **ARCH-02**: 기존 스킬 수정 없이 호출 인터페이스만 정의 (adapter pattern)
 - [x] **ARCH-03**: SessionStart hook으로 Living State Document 자동 로드
 - [x] **ARCH-04**: Stage 전환 게이트 — 필수 artifact 없이 다음 Stage 진입 차단
 - [x] **ARCH-05**: state.json 유실 시 파일시스템에서 상태 복원 (reconcile)
@@ -124,8 +124,8 @@
 | PIPE-07 | Phase 9 | Complete |
 | PIPE-08 | Phase 9 | Complete |
 | PIPE-09 | Phase 9 | Complete |
-| ARCH-01 | Phase 10 | Pending |
-| ARCH-02 | Phase 10 | Pending |
+| ARCH-01 | Phase 10 | Complete |
+| ARCH-02 | Phase 10 | Complete |
 | ARCH-03 | Phase 10 | Complete |
 | ARCH-04 | Phase 7 | Complete |
 | ARCH-05 | Phase 10 | Complete |
