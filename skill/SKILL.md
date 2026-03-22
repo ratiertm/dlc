@@ -86,18 +86,20 @@ Pipeline:
 
 ### Stage 3: TEST
 
-Purpose: Verify implementation against plan criteria.
-Primary skill: GSD (`/gsd:verify-work`)
-Supporting: PDCA (`/pdca analyze`)
-Outputs: Verification report, gap analysis
+Purpose: Verify implementation against E2E spec (per-step pass/fail), compare prototype manifest structure against code, generate user behavioral verification checklist. Dual gate: both Claude structural and user behavioral verification required before COMMIT.
+Primary: dev-lifecycle (spec + prototype verification)
+Supporting: GSD (`/gsd:verify-work`), PDCA (`/pdca analyze`)
+Outputs: Verification report (verification.json + verification.md), user behavioral checklist
 
-Verification items:
-- Plan-vs-implementation completeness
-- Functional correctness (project-type-specific checks)
-- Error log review
-- Visual/behavioral confirmation where applicable
+Read: `$CLAUDE_SKILL_DIR/references/test-stage.md`
 
-On failure: generate gap list, return to Stage 2.
+Pipeline:
+1. Stage init (gate check, spec + prototype load, deviation scan)
+2. Spec step enumeration (parse all steps, display verification plan)
+3. Per-step spec verification (check code against each step's criteria)
+4. Prototype structural comparison (manifest vs implementation)
+5. User behavioral checklist generation (spec steps -> user actions)
+6. Completion (generate reports, dual gate enforcement)
 
 ### Stage 4: COMMIT
 
