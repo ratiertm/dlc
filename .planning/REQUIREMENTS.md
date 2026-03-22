@@ -46,11 +46,11 @@
 
 ### Pipeline — Outer Loop (Stage 5-9)
 
-- [ ] **PIPE-05**: Stage 5 DEPLOY — 프로젝트 타입별 범용 배포 템플릿
-- [ ] **PIPE-06**: Stage 6 DEPLOY TEST — 스모크 테스트 (서버 상태, 핵심 플로우, 리소스)
-- [ ] **PIPE-07**: Stage 7 DOCUMENT — 아키텍처/시퀀스 다이어그램, CLAUDE.md/README.md 업데이트
-- [ ] **PIPE-08**: Stage 8 RETROSPECT — 회고 + ADR 누락 체크 + work-log + Living State 반영
-- [ ] **PIPE-09**: Stage 9 PROMOTE — 선택적 데모 영상 생성
+- [x] **PIPE-05**: Stage 5 DEPLOY — 프로젝트 타입별 범용 배포 템플릿
+- [x] **PIPE-06**: Stage 6 DEPLOY TEST — 스모크 테스트 (서버 상태, 핵심 플로우, 리소스)
+- [x] **PIPE-07**: Stage 7 DOCUMENT — 아키텍처/시퀀스 다이어그램, CLAUDE.md/README.md 업데이트
+- [x] **PIPE-08**: Stage 8 RETROSPECT — 회고 + ADR 누락 체크 + work-log + Living State 반영
+- [x] **PIPE-09**: Stage 9 PROMOTE — 선택적 데모 영상 생성
 
 ### Skill Architecture
 
@@ -119,11 +119,11 @@
 | PIPE-02 | Phase 5 | Complete |
 | PIPE-03 | Phase 6 | Complete |
 | PIPE-04 | Phase 7 | Complete |
-| PIPE-05 | Phase 9 | Pending |
-| PIPE-06 | Phase 9 | Pending |
-| PIPE-07 | Phase 9 | Pending |
-| PIPE-08 | Phase 9 | Pending |
-| PIPE-09 | Phase 9 | Pending |
+| PIPE-05 | Phase 9 | Complete |
+| PIPE-06 | Phase 9 | Complete |
+| PIPE-07 | Phase 9 | Complete |
+| PIPE-08 | Phase 9 | Complete |
+| PIPE-09 | Phase 9 | Complete |
 | ARCH-01 | Phase 10 | Pending |
 | ARCH-02 | Phase 10 | Pending |
 | ARCH-03 | Phase 10 | Pending |
