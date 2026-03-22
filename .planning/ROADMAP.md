@@ -48,10 +48,10 @@ Plans:
   1. A feature interaction can be described using the 5-layer chain (Screen, Connection, Processing, Response, Error) with clear per-layer fields
   2. Each spec step has a unique spec ID (e2e-NNN) that can be referenced across all artifacts (spec, prototype, code, verification)
   3. The format is documented with at least one realistic example spec
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] 02-01: TBD
+- [ ] 02-01-PLAN.md — Create spec template, format reference doc, and realistic user-login example spec
 
 ### Phase 3: Prototype Format
 **Goal**: A prototype template exists that produces clickable single-file HTML prototypes with embedded manifest and semantic data attributes
