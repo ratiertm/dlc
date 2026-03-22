@@ -167,11 +167,11 @@ Plans:
   3. SessionStart hook automatically loads the Living State Document so context is restored without user action
   4. If state.json is lost or corrupted, the system reconstructs state from filesystem artifacts (reconcile)
   5. User can select execution mode (hotfix/feature/release/milestone) to skip unnecessary stages
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 10-01: TBD
-- [ ] 10-02: TBD
+- [ ] 10-01-PLAN.md — SessionStart hook, state reconcile procedure, execution mode skip logic
+- [ ] 10-02-PLAN.md — Audit progressive disclosure (ARCH-01) and adapter pattern (ARCH-02) compliance
 
 ## Progress
 
