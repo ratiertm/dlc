@@ -38,6 +38,10 @@ On session start (or after compaction):
 
 1. **Read state:** Load `.lifecycle/state.json`
    - If not exists: initialize from `$CLAUDE_SKILL_DIR/templates/state.json`, create `.lifecycle/` directory
+1.5. **Read Living State (if exists):** Load `.lifecycle/LIVING-STATE.md`
+   - This single file restores full project context: current state, active settings, recent decisions, event timeline, key ADRs, and resume hint
+   - If not exists: skip (first session or pre-Phase-8 project)
+   - If exists: use its contents to inform all subsequent interactions in this session
 2. **Display position:**
    ```
    Dev Lifecycle: Stage {N} {NAME} -- {STATUS}
@@ -184,6 +188,9 @@ Dev-lifecycle tracks state in the project's `.lifecycle/` directory (separate fr
 | `.lifecycle/state.json` | Current stage, status, feature, mode |
 | `.lifecycle/manifest.json` | Artifact registry, stage connections |
 | `.lifecycle/history/` | Stage transition log (timestamped JSON entries) |
+| `.lifecycle/LIVING-STATE.md` | Context snapshot for session restoration |
+| `.lifecycle/settings-changelog.md` | Settings change history with reasons |
+| `.lifecycle/decisions.md` | Lightweight decision log |
 
 On first invocation:
 1. Create `.lifecycle/` directory
@@ -192,6 +199,35 @@ On first invocation:
 4. Detect project type and store in state.json
 
 Read: `$CLAUDE_SKILL_DIR/references/stage-transitions.md` for gate logic and status values.
+
+## Memory & Decision Trail
+
+Dev-lifecycle automatically maintains memory files in `.lifecycle/` to prevent context loss across sessions.
+
+| File | Purpose | Updated When |
+|------|---------|-------------|
+| `.lifecycle/LIVING-STATE.md` | Session-start context snapshot (read this ONE file to restore full context) | Every stage transition + session end |
+| `.lifecycle/settings-changelog.md` | Append-only record of all settings/config changes with reasons | DO completion + COMMIT completion |
+| `.lifecycle/decisions.md` | Lightweight one-line decision entries (below ADR threshold) | DO completion (when decisions made) |
+
+Templates: `$CLAUDE_SKILL_DIR/templates/living-state.md`, `settings-changelog.md`, `decisions.md`
+
+### WHY+SEE Code Comments
+
+When an ADR is created during DO stage, related code receives WHY+SEE comments linking implementation to the decision record:
+
+```
+// SPEC: e2e-{feature}-{NNN} -- {step title}
+// WHY: {one-line decision rationale}
+// SEE: docs/decisions/{NNN}-{slug}.md
+```
+
+- `// SPEC:` always comes first (structural link to spec step)
+- `// WHY:` + `// SEE:` follow (decision context from ADR)
+- Full workflow: `$CLAUDE_SKILL_DIR/references/do-stage.md` Step 4 (ADR Detection)
+- ADR creation: Delegated to ADR skill (`~/.claude/skills/adr/SKILL.md`)
+
+Read: `$CLAUDE_SKILL_DIR/references/do-stage.md` for full ADR detection + WHY+SEE insertion logic.
 
 ## Stage Transitions
 
