@@ -69,15 +69,20 @@ Pipeline:
 
 ### Stage 2: DO
 
-Purpose: Implement the plan. Track progress and decisions.
-Primary skill: PDCA (`/pdca do`)
-Supporting: ADR (auto-detect trade-offs), WHY+SEE code comments
-Outputs: Code changes, ADR documents, progress updates
+Purpose: Implement against approved spec. Track progress, log deviations, detect ADR-worthy decisions.
+Primary: dev-lifecycle (spec-driven implementation tracking)
+Supporting: ADR (auto-detect trade-offs), WHY+SEE code comments, PDCA (quality support)
+Outputs: Code changes, updated spec (step statuses + deviations), ADR documents
 
-During implementation:
-- Detect trade-offs ("chose A over B") and suggest ADR creation
-- Insert WHY+SEE comments at decision points in code
-- Flag large direction changes for PLAN update
+Read: `$CLAUDE_SKILL_DIR/references/do-stage.md`
+
+Pipeline:
+1. Stage init (gate check, spec load, status update)
+2. Spec load and checklist build (read spec from disk, display progress)
+3. Per-step implementation (implement each chain step, add SPEC comments)
+4. Deviation handling (detect, present to user, record with approval)
+5. ADR detection (deviation + tradeoff triggers, suggest ADR creation)
+6. Completion (artifact registration, state update)
 
 ### Stage 3: TEST
 
