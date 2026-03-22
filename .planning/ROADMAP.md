@@ -91,11 +91,11 @@ Plans:
   2. If implementation deviates from the approved spec, the deviation is recorded in a log with reason and impact
   3. ADR-worthy decisions are detected and recorded with WHY+SEE comments in the code
   4. The DO stage refuses to start without a PLAN-approved spec
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 05-01: TBD
-- [ ] 05-02: TBD
+- [ ] 05-01-PLAN.md — Create DO Stage adapter reference (spec checklist, deviation logging, ADR detection, completion)
+- [ ] 05-02-PLAN.md — Update SKILL.md and role-matrix.md to reflect dev-lifecycle as primary for Stage 2
 
 ### Phase 6: TEST Stage
 **Goal**: The TEST stage verifies implementation against both the E2E spec (per-layer pass/fail) and the prototype (structural comparison), producing actionable results for both Claude and the user
