@@ -151,12 +151,11 @@ Plans:
   3. DOCUMENT stage generates or updates architecture diagrams, CLAUDE.md, and README.md
   4. RETROSPECT produces a retrospective with ADR gap check, work-log entry, and Living State update
   5. PROMOTE optionally generates demo content (skippable without penalty)
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 09-01: TBD
-- [ ] 09-02: TBD
-- [ ] 09-03: TBD
+- [ ] 09-01-PLAN.md — Create 5 outer loop adapter reference files (deploy, deploy-test, document, retrospect, promote) following Inner Loop pattern
+- [ ] 09-02-PLAN.md — Update SKILL.md Stage 5-9 sections with Read directives and role-matrix.md with dev-lifecycle as primary
 
 ### Phase 10: Skill Architecture & Resilience
 **Goal**: The skill is production-ready with progressive disclosure, automatic session restoration, state resilience, and execution mode support
@@ -190,5 +189,5 @@ Note: Phase 8 depends only on Phase 1 and can run in parallel with Phases 2-7 if
 | 6. TEST Stage | 2/2 | Complete   | 2026-03-22 |
 | 7. COMMIT Stage | 2/2 | Complete   | 2026-03-22 |
 | 8. Memory & Decision Trail | 2/2 | Complete   | 2026-03-22 |
-| 9. Outer Loop | 0/3 | Not started | - |
+| 9. Outer Loop | 0/2 | Not started | - |
 | 10. Skill Architecture & Resilience | 0/2 | Not started | - |
