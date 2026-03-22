@@ -200,6 +200,12 @@ Commit: {short-sha} {first line of message}
 Inner loop complete. Ready for outer loop (DEPLOY) or next feature.
 ```
 
+6. **Update memory files:**
+   - If any settings/config files were committed, ensure they are recorded in `.lifecycle/settings-changelog.md`
+     - Check: for each committed file matching settings patterns (`.env*`, `*.config.*`, `package.json`, `tsconfig.json`, `*.yaml`/`*.toml`), verify an entry exists in settings-changelog. If not, append one.
+     - Format: `| {date time} | {file path} | {summary of change} | {from commit context} |`
+   - Regenerate `.lifecycle/LIVING-STATE.md` with current state (per stage-transitions.md Step 6 procedure)
+
 ## Anti-Patterns
 
 These are the most common mistakes. Do NOT do any of these:

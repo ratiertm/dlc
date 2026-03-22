@@ -77,6 +77,16 @@ When transitioning from Stage N to Stage N+1:
      "mode": "feature|hotfix|release|milestone"
    }
    ```
+6. **Update Living State** -- After successful transition, regenerate `.lifecycle/LIVING-STATE.md`:
+   - Read current `state.json` for stage/status/feature/mode
+   - Read last 20 entries from `.lifecycle/settings-changelog.md` (if exists)
+   - Read last 10 entries from `.lifecycle/decisions.md` (if exists)
+   - Read `.lifecycle/history/` recent entries for Event Timeline
+   - Read `manifest.json` for stage completion timestamps
+   - List ADRs from `docs/decisions/` (if directory exists)
+   - Read `state.json` `session.resume_hint` for Resume Hint section
+   - Write complete `.lifecycle/LIVING-STATE.md` using template structure from `$CLAUDE_SKILL_DIR/templates/living-state.md`
+   - Target: ~100 lines max. Truncate older changelog/decision entries if needed.
 
 ## Backward Transitions
 

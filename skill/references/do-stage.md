@@ -272,6 +272,16 @@ ADRs created: N
 
 **e. Announce:** "DO complete. Ready for TEST stage."
 
+**f. Update memory files:**
+
+1. If any settings/config files were changed during DO (`.env*`, `*.config.*`, `package.json`, `tsconfig.json`, `*.yaml`/`*.toml` config), append entries to `.lifecycle/settings-changelog.md`:
+   - Format: `| {date time} | {file path} | {what changed} | {why it changed} |`
+   - If file doesn't exist yet, copy from `$CLAUDE_SKILL_DIR/templates/settings-changelog.md` first
+2. If any lightweight decisions were made during DO (direction changes, small tradeoffs that don't meet ADR threshold), append to `.lifecycle/decisions.md`:
+   - Format: `| {date} | {decision} | {reason} |`
+   - If file doesn't exist yet, copy from `$CLAUDE_SKILL_DIR/templates/decisions.md` first
+3. Regenerate `.lifecycle/LIVING-STATE.md` with current state (per stage-transitions.md Step 6 procedure)
+
 ## Anti-Patterns
 
 These are the most common mistakes. Do NOT do any of these:
