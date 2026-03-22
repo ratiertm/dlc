@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- SECTION 1: HEAD -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Login - Prototype</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: #f5f5f5; padding: 16px; }
+    #app { max-width: 480px; margin: 0 auto; }
+    .screen { display: none; background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 24px; }
+    .screen.active { display: block; }
+    h2 { margin-bottom: 16px; color: #333; }
+    input, select, textarea {
+      width: 100%; padding: 10px; border: 1px solid #ccc;
+      border-radius: 4px; margin-bottom: 12px; font-size: 14px;
+    }
+    button, .btn {
+      display: inline-block; padding: 10px 20px; background: #2563eb;
+      color: #fff; border: none; border-radius: 4px; cursor: pointer;
+      font-size: 14px; text-decoration: none;
+    }
+    button:hover, .btn:hover { background: #1d4ed8; }
+    .error {
+      background: #fef2f2; border: 1px solid #fca5a5; color: #dc2626;
+      padding: 12px; border-radius: 4px; margin-bottom: 12px; display: none;
+    }
+    .success {
+      background: #f0fdf4; border: 1px solid #86efac; color: #16a34a;
+      padding: 12px; border-radius: 4px;
+    }
+    .field-group { margin-bottom: 12px; }
+    .field-group label {
+      display: block; margin-bottom: 4px; font-weight: 600;
+      color: #555; font-size: 13px;
+    }
+    .nav-link {
+      color: #2563eb; text-decoration: underline; cursor: pointer;
+      font-size: 14px;
+    }
+    @media (min-width: 768px) { #app { max-width: 640px; } }
+  </style>
+</head>
+<body>
+
+  <!-- SECTION 2: MANIFEST -->
+  <script type="application/json" id="prototype-manifest">
+  {
+    "feature": "user-login",
+    "specFile": "user-login.spec.md",
+    "version": "1",
+    "generatedFrom": "e2e-login spec",
+    "screens": ["login", "loading", "dashboard"],
+    "specMapping": [
+      {"specId": "e2e-login-001", "element": "[data-screen='login']", "type": "Screen"},
+      {"specId": "e2e-login-002", "element": "[data-action='submit-login']", "type": "Connection"},
+      {"specId": "e2e-login-003", "element": "[data-screen='loading']", "type": "Processing"},
+      {"specId": "e2e-login-004", "element": "[data-screen='dashboard']", "type": "Response"},
+      {"specId": "e2e-login-005", "element": "[data-error='invalid-credentials']", "type": "Error"}
+    ],
+    "interactions": [
+      {
+        "screen": "login",
+        "element": "[data-action='submit-login']",
+        "action": "click",
+        "result": "validate",
+        "target": "#loading"
+      },
+      {
+        "screen": "dashboard",
+        "element": "[data-action='logout']",
+        "action": "click",
+        "result": "navigate",
+        "target": "#login"
+      }
+    ],
+    "fields": [
+      {
+        "screen": "login",
+        "element": "[data-field='email']",
+        "type": "email",
+        "required": true
+      },
+      {
+        "screen": "login",
+        "element": "[data-field='password']",
+        "type": "password",
+        "required": true
+      }
+    ],
+    "errorStates": [
+      {
+        "screen": "login",
+        "trigger": "empty email or password fields",
+        "element": "[data-error='empty-fields']",
+        "message": "Email and password are required."
+      },
+      {
+        "screen": "login",
+        "trigger": "invalid credentials submitted",
+        "element": "[data-error='invalid-credentials']",
+        "message": "Invalid email or password."
+      }
+    ]
+  }
+  </script>
+
+  <!-- SECTION 3: SCREENS -->
+  <div id="app">
+
+    <!-- Screen: Login Form (maps to e2e-login-001) -->
+    <div data-screen="login" data-spec-id="e2e-login-001" class="screen">
+      <h2>Login</h2>
+
+      <div data-error="empty-fields" data-spec-id="e2e-login-005" class="error">
+        Email and password are required.
+      </div>
+      <div data-error="invalid-credentials" data-spec-id="e2e-login-005" class="error">
+        Invalid email or password.
+      </div>
+
+      <div class="field-group">
+        <label for="email">Email</label>
+        <input data-field="email" type="email" id="email" placeholder="email@example.com" required>
+      </div>
+      <div class="field-group">
+        <label for="password">Password</label>
+        <input data-field="password" type="password" id="password" placeholder="Password" required>
+      </div>
+
+      <button data-action="submit-login" data-spec-id="e2e-login-002">Login</button>
+    </div>
+
+    <!-- Screen: Loading / Processing (maps to e2e-login-003) -->
+    <div data-screen="loading" data-spec-id="e2e-login-003" data-state="loading" class="screen">
+      <h2>Verifying credentials...</h2>
+      <p>Please wait.</p>
+    </div>
+
+    <!-- Screen: Dashboard / Success (maps to e2e-login-004) -->
+    <div data-screen="dashboard" data-spec-id="e2e-login-004" class="screen">
+      <h2>Dashboard</h2>
+      <div class="success">
+        Welcome back, <span data-mock="user.name">Alice Kim</span>!
+      </div>
+      <p style="margin-top: 12px;">
+        Logged in as <span data-mock="user.email">alice@example.com</span>
+      </p>
+      <p style="margin-top: 16px;">
+        <a data-action="logout" class="nav-link">Logout</a>
+      </p>
+    </div>
+
+  </div>
+
+  <!-- SECTION 4: ENGINE -->
+  <script>
+    // --- Mock Data ---
+    var MOCK = {
+      user: { name: "Alice Kim", email: "alice@example.com" }
+    };
+
+    // --- Hash Router ---
+    function showScreen(id) {
+      document.querySelectorAll('.screen').forEach(function(s) {
+        s.classList.remove('active');
+      });
+      var target = document.querySelector('[data-screen="' + id + '"]');
+      if (target) {
+        target.classList.add('active');
+        populateScreen(id);
+      }
+    }
+
+    function getDefaultScreen() {
+      var manifest = JSON.parse(
+        document.getElementById('prototype-manifest').textContent
+      );
+      return manifest.screens[0];
+    }
+
+    window.addEventListener('hashchange', function() {
+      showScreen(location.hash.slice(1) || getDefaultScreen());
+    });
+
+    // --- Action Delegation ---
+    document.addEventListener('click', function(e) {
+      var actionEl = e.target.closest('[data-action]');
+      if (actionEl) {
+        e.preventDefault();
+        handleAction(actionEl.dataset.action, actionEl);
+      }
+    });
+
+    // --- Action Handlers ---
+    function handleAction(action, element) {
+      if (action === 'submit-login') {
+        hideAllErrors();
+
+        var email = document.querySelector('[data-field="email"]').value.trim();
+        var password = document.querySelector('[data-field="password"]').value.trim();
+
+        // Validate empty fields
+        if (!email || !password) {
+          showError('empty-fields');
+          return;
+        }
+
+        // Show loading screen (Processing step simulation)
+        showScreen('loading');
+
+        // Simulate server processing (800ms delay)
+        setTimeout(function() {
+          if (email === 'test@example.com' && password === 'password123') {
+            showScreen('dashboard');
+          } else {
+            showScreen('login');
+            showError('invalid-credentials');
+          }
+        }, 800);
+
+        return;
+      }
+
+      if (action === 'logout') {
+        // Clear fields and return to login
+        document.querySelector('[data-field="email"]').value = '';
+        document.querySelector('[data-field="password"]').value = '';
+        hideAllErrors();
+        showScreen('login');
+        return;
+      }
+    }
+
+    // --- Error Display ---
+    function showError(errorName) {
+      var el = document.querySelector('[data-error="' + errorName + '"]');
+      if (el) el.style.display = 'block';
+    }
+
+    function hideAllErrors() {
+      document.querySelectorAll('[data-error]').forEach(function(el) {
+        el.style.display = 'none';
+      });
+    }
+
+    // --- Mock Data Population ---
+    function populateScreen(screenId) {
+      var screen = document.querySelector('[data-screen="' + screenId + '"]');
+      if (!screen) return;
+      screen.querySelectorAll('[data-mock]').forEach(function(el) {
+        var path = el.dataset.mock;
+        var value = resolvePath(MOCK, path);
+        if (value !== undefined) el.textContent = value;
+      });
+    }
+
+    function resolvePath(obj, path) {
+      return path.split('.').reduce(function(acc, key) {
+        return acc && acc[key];
+      }, obj);
+    }
+
+    // --- Initialize ---
+    showScreen(location.hash.slice(1) || getDefaultScreen());
+  </script>
+
+</body>
+</html>
