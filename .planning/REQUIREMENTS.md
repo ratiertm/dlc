@@ -8,7 +8,7 @@
 ### E2E Feature Spec (핵심)
 
 - [x] **SPEC-01**: 각 기능을 화면→연결→처리→응답→에러 5단계 체인으로 명세하는 포맷 정의
-- [ ] **SPEC-02**: E2E Spec을 PLAN에서 작성하고 사용자와 합의하는 워크플로
+- [x] **SPEC-02**: E2E Spec을 PLAN에서 작성하고 사용자와 합의하는 워크플로
 - [ ] **SPEC-03**: DO에서 E2E Spec의 각 단계를 구현 체크리스트로 추적
 - [ ] **SPEC-04**: TEST에서 E2E Spec의 각 단계별 pass/fail 검증 및 리포트 생성
 - [ ] **SPEC-05**: DO 중 Spec에서 이탈 시 deviation log에 기록하는 메커니즘
@@ -19,7 +19,7 @@
 - [x] **PROTO-02**: hash 기반 SPA 라우팅으로 멀티스크린 네비게이션 구현 (서버 불필요)
 - [x] **PROTO-03**: data-* 속성(data-screen, data-action, data-field, data-error)으로 UI 요소에 의미 부여
 - [x] **PROTO-04**: 내장 JSON manifest로 프로토타입 구조를 기계 파싱 가능하게 유지
-- [ ] **PROTO-05**: 사용자가 프로토타입을 브라우저에서 클릭하여 확인하고 피드백하는 합의 게이트
+- [x] **PROTO-05**: 사용자가 프로토타입을 브라우저에서 클릭하여 확인하고 피드백하는 합의 게이트
 - [ ] **PROTO-06**: TEST에서 프로토타입의 manifest와 실제 구현을 구조적으로 비교하여 누락 검출
 
 ### Foundation
@@ -39,7 +39,7 @@
 
 ### Pipeline — Inner Loop (Stage 1-4)
 
-- [ ] **PIPE-01**: Stage 1 PLAN — preflight check + E2E Spec 작성 + Prototype 생성 + 사용자 합의 게이트
+- [x] **PIPE-01**: Stage 1 PLAN — preflight check + E2E Spec 작성 + Prototype 생성 + 사용자 합의 게이트
 - [ ] **PIPE-02**: Stage 2 DO — Spec 기준 구현 + deviation log + ADR 자동 감지 + WHY+SEE 주석
 - [ ] **PIPE-03**: Stage 3 TEST — E2E Spec 단계별 검증 + Prototype 구조 대조 + GSD verify + PDCA analyze
 - [ ] **PIPE-04**: Stage 4 COMMIT — why 중심 커밋 + ADR 참조 + artifact 존재 검증
@@ -96,7 +96,7 @@
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | SPEC-01 | Phase 2 | Complete |
-| SPEC-02 | Phase 4 | Pending |
+| SPEC-02 | Phase 4 | Complete |
 | SPEC-03 | Phase 5 | Pending |
 | SPEC-04 | Phase 6 | Pending |
 | SPEC-05 | Phase 5 | Pending |
@@ -104,7 +104,7 @@
 | PROTO-02 | Phase 3 | Complete |
 | PROTO-03 | Phase 3 | Complete |
 | PROTO-04 | Phase 3 | Complete |
-| PROTO-05 | Phase 4 | Pending |
+| PROTO-05 | Phase 4 | Complete |
 | PROTO-06 | Phase 6 | Pending |
 | FOUND-01 | Phase 1 | Complete |
 | FOUND-02 | Phase 1 | Complete |
@@ -115,7 +115,7 @@
 | MEMO-02 | Phase 8 | Pending |
 | MEMO-03 | Phase 8 | Pending |
 | MEMO-04 | Phase 8 | Pending |
-| PIPE-01 | Phase 4 | Pending |
+| PIPE-01 | Phase 4 | Complete |
 | PIPE-02 | Phase 5 | Pending |
 | PIPE-03 | Phase 6 | Pending |
 | PIPE-04 | Phase 7 | Pending |
