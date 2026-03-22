@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cat .lifecycle/LIVING-STATE.md 2>/dev/null && echo '---' && cat .lifecycle/state.json 2>/dev/null || echo 'No lifecycle state found. Run dev-lifecycle to initialize.'",
+            "timeout": 5,
+            "statusMessage": "Loading dev-lifecycle context..."
+          }
+        ]
+      }
+    ]
+  }
+}
