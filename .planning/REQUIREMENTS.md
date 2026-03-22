@@ -35,7 +35,7 @@
 - [x] **MEMO-01**: 세팅/설정 변경 시 맥락(왜)+값(무엇) 자동 영구 기록
 - [x] **MEMO-02**: ADR보다 가벼운 한 줄짜리 결정 이력(Lightweight Decision Log) 누적
 - [x] **MEMO-03**: Living State Document — 세션 시작 시 읽으면 전체 맥락 즉시 복원
-- [ ] **MEMO-04**: ADR 생성 시 코드에 WHY+SEE 주석 삽입하여 F/U 가능
+- [x] **MEMO-04**: ADR 생성 시 코드에 WHY+SEE 주석 삽입하여 F/U 가능
 
 ### Pipeline — Inner Loop (Stage 1-4)
 
@@ -114,7 +114,7 @@
 | MEMO-01 | Phase 8 | Complete |
 | MEMO-02 | Phase 8 | Complete |
 | MEMO-03 | Phase 8 | Complete |
-| MEMO-04 | Phase 8 | Pending |
+| MEMO-04 | Phase 8 | Complete |
 | PIPE-01 | Phase 4 | Complete |
 | PIPE-02 | Phase 5 | Complete |
 | PIPE-03 | Phase 6 | Complete |

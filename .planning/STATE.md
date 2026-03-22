@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: in_progress
-stopped_at: Plan 08-01 complete, 08-02 next
-last_updated: "2026-03-22T10:29:19Z"
-last_activity: 2026-03-22 -- Plan 08-01 executed (memory artifact templates)
+stopped_at: Phase 08 complete, Phase 09 next
+last_updated: "2026-03-22T10:33:00Z"
+last_activity: 2026-03-22 -- Plan 08-02 executed (memory trigger wiring)
 progress:
   total_phases: 10
-  completed_phases: 7
+  completed_phases: 8
   total_plans: 14
-  completed_plans: 13
+  completed_plans: 14
   percent: 100
 ---
 
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-22)
 
 **Core value:** 개발 과정 산출물이 AI의 외부 메모리 역할을 하여, 재작업과 맥락 유실을 근본적으로 방지한다.
-**Current focus:** Phase 8 - Memory & Decision Trail
+**Current focus:** Phase 9 - Outer Loop
 
 ## Current Position
 
-Phase: 8 of 10 (Memory & Decision Trail) -- IN PROGRESS
-Plan: 1 of 2 in current phase
-Status: Plan 08-01 complete
-Last activity: 2026-03-22 -- Plan 08-01 executed (memory artifact templates)
+Phase: 9 of 10 (Outer Loop) -- NOT STARTED
+Plan: 0 of 3 in current phase
+Status: Phase 08 complete
+Last activity: 2026-03-22 -- Plan 08-02 executed (memory trigger wiring)
 
-Progress: [█████████░] 93%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
@@ -62,6 +62,7 @@ Progress: [█████████░] 93%
 | Phase 07-commit-stage P01 | 3min | 2 tasks | 1 files |
 | Phase 07-commit-stage P02 | 1min | 2 tasks | 4 files |
 | Phase 08-memory-decision-trail P01 | 1min | 2 tasks | 3 files |
+| Phase 08-memory-decision-trail P02 | 2min | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -97,6 +98,8 @@ Recent decisions affecting current work:
 - [Phase 07-02]: Stage 4 COMMIT now uses dev-lifecycle as primary (was Git direct), completing inner loop skill alignment for all 4 stages
 - [Phase 08-01]: Three memory templates created: settings changelog (Date|File|Change|Reason), decision log (Date|Decision|Reason), Living State (6-section aggregation doc)
 - [Phase 08-01]: Generation instructions embedded as HTML comment in living-state.md with source mapping and truncation limits (last 20 settings, last 10 decisions)
+- [Phase 08-02]: Memory triggers appended to existing steps (not inline modifications) to preserve adapter stability
+- [Phase 08-02]: WHY+SEE scope limited to SKILL.md cross-reference + verification of existing do-stage.md pattern (MEMO-04)
 
 ### Pending Todos
 
@@ -110,6 +113,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-22T10:29:19Z
-Stopped at: Completed 08-01-PLAN.md
-Resume file: .planning/phases/08-memory-decision-trail/08-01-SUMMARY.md
+Last session: 2026-03-22T10:33:00Z
+Stopped at: Completed 08-02-PLAN.md
+Resume file: .planning/phases/08-memory-decision-trail/08-02-SUMMARY.md
