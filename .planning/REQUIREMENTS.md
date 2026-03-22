@@ -27,7 +27,7 @@
 - [x] **FOUND-01**: muse 하드코딩 제거 — 모든 프로젝트 타입에서 사용 가능한 범용 스킬 전환
 - [x] **FOUND-02**: state.json으로 현재 Stage, 진행 상태, 활성 기능 추적 (세션 간 유지)
 - [x] **FOUND-03**: Stage Artifact Manifest — 각 Stage 산출물을 기록하고 다음 Stage 필수 입력으로 연결
-- [ ] **FOUND-04**: 상황별 실행 모드(핫픽스/피처/릴리즈/마일스톤) — 불필요한 Stage 생략 가능
+- [x] **FOUND-04**: 상황별 실행 모드(핫픽스/피처/릴리즈/마일스톤) — 불필요한 Stage 생략 가능
 - [x] **FOUND-05**: GSD/PDCA/커스텀 스킬 역할 매트릭스 — 각 Stage에서 어떤 스킬이 어떤 역할
 
 ### Memory & Decision Trail
@@ -56,9 +56,9 @@
 
 - [ ] **ARCH-01**: SKILL.md 500줄 이하, 상세 로직은 references/ 분리 (progressive disclosure)
 - [ ] **ARCH-02**: 기존 스킬 수정 없이 호출 인터페이스만 정의 (adapter pattern)
-- [ ] **ARCH-03**: SessionStart hook으로 Living State Document 자동 로드
+- [x] **ARCH-03**: SessionStart hook으로 Living State Document 자동 로드
 - [x] **ARCH-04**: Stage 전환 게이트 — 필수 artifact 없이 다음 Stage 진입 차단
-- [ ] **ARCH-05**: state.json 유실 시 파일시스템에서 상태 복원 (reconcile)
+- [x] **ARCH-05**: state.json 유실 시 파일시스템에서 상태 복원 (reconcile)
 
 ## v2 Requirements
 
@@ -109,7 +109,7 @@
 | FOUND-01 | Phase 1 | Complete |
 | FOUND-02 | Phase 1 | Complete |
 | FOUND-03 | Phase 1 | Complete |
-| FOUND-04 | Phase 10 | Pending |
+| FOUND-04 | Phase 10 | Complete |
 | FOUND-05 | Phase 1 | Complete |
 | MEMO-01 | Phase 8 | Complete |
 | MEMO-02 | Phase 8 | Complete |
@@ -126,9 +126,9 @@
 | PIPE-09 | Phase 9 | Complete |
 | ARCH-01 | Phase 10 | Pending |
 | ARCH-02 | Phase 10 | Pending |
-| ARCH-03 | Phase 10 | Pending |
+| ARCH-03 | Phase 10 | Complete |
 | ARCH-04 | Phase 7 | Complete |
-| ARCH-05 | Phase 10 | Pending |
+| ARCH-05 | Phase 10 | Complete |
 
 **Coverage:**
 - v1 requirements: 34 total
