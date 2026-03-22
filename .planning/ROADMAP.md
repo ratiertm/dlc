@@ -120,10 +120,11 @@ Plans:
   1. COMMIT is blocked if any spec step has FAIL status -- user sees a specific gap list pointing to what needs fixing
   2. The commit message centers on "why" and references relevant ADRs
   3. Stage transition gate validates all required artifacts (spec, prototype, verification report) exist before allowing COMMIT
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 07-01: TBD
+- [ ] 07-01-PLAN.md — Create COMMIT Stage adapter reference (verification gate, gap list, why-centric commit, artifact validation, override flow)
+- [ ] 07-02-PLAN.md — Update SKILL.md Stage 4 section and role-matrix.md to reflect dev-lifecycle as primary for Stage 4
 
 ### Phase 8: Memory & Decision Trail
 **Goal**: Every settings change, decision, and state transition is automatically recorded and accessible for future context restoration
@@ -187,7 +188,7 @@ Note: Phase 8 depends only on Phase 1 and can run in parallel with Phases 2-7 if
 | 4. PLAN Stage | 2/2 | Complete   | 2026-03-22 |
 | 5. DO Stage | 2/2 | Complete   | 2026-03-22 |
 | 6. TEST Stage | 2/2 | Complete   | 2026-03-22 |
-| 7. COMMIT Stage | 0/1 | Not started | - |
+| 7. COMMIT Stage | 0/2 | Not started | - |
 | 8. Memory & Decision Trail | 0/2 | Not started | - |
 | 9. Outer Loop | 0/3 | Not started | - |
 | 10. Skill Architecture & Resilience | 0/2 | Not started | - |
