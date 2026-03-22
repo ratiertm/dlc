@@ -6,7 +6,7 @@ This document maps all 9 stages of the dev-lifecycle pipeline to their primary a
 
 | Stage | Stage Name | Primary Skill | Supporting Skills | dev-lifecycle Role |
 |-------|------------|---------------|-------------------|-------------------|
-| 1 | PLAN | GSD (`/gsd:plan-phase`, `/gsd:discuss-phase`) | PDCA (`/pdca plan`), ADR (trade-off detection) | Trigger pre-flight check, invoke GSD, register plan artifacts |
+| 1 | PLAN | dev-lifecycle (spec + prototype generation) | GSD (broader planning), PDCA (`/pdca plan`), ADR (trade-off detection) | Run preflight, generate spec + prototype, enforce agreement gate |
 | 2 | DO | PDCA (`/pdca do`) | ADR (auto-detect decisions), WHY+SEE comments | Track implementation progress, update state.json |
 | 3 | TEST | GSD (`/gsd:verify-work`) | PDCA (`/pdca analyze`) | Run verification, compare against manifest, update status |
 | 4 | COMMIT | Git (direct) | ADR (reference in commit msg) | Verify artifacts exist before allowing commit |
@@ -37,7 +37,7 @@ When multiple skills could handle a task, dev-lifecycle follows this priority:
 
 | Situation | Resolution |
 |-----------|-----------|
-| GSD `/gsd:plan-phase` vs PDCA `/pdca plan` | GSD is primary for Stage 1. PDCA supplements with cycle tracking. |
+| dev-lifecycle vs GSD in Stage 1 | dev-lifecycle is primary for spec + prototype generation. GSD is available for broader project planning (roadmap, phases). These are complementary, not competing. |
 | GSD `/gsd:verify-work` vs PDCA `/pdca analyze` | GSD is primary for Stage 3. PDCA provides gap analysis. |
 | ADR auto-detection during Stage 2 | ADR runs in parallel with PDCA. Both outputs are registered. |
 | Manual skill invocation during any stage | Always allowed. dev-lifecycle tracks the output if active. |
@@ -48,7 +48,7 @@ Each stage produces specific artifact types that get registered in manifest.json
 
 | Stage | Expected Output Types |
 |-------|----------------------|
-| 1 PLAN | plan, spec (optional) |
+| 1 PLAN | spec (required), prototype (required) |
 | 2 DO | code, prototype (optional) |
 | 3 TEST | verification, test-report |
 | 4 COMMIT | commit-hash, tag (optional) |

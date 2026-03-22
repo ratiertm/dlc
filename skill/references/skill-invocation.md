@@ -12,11 +12,11 @@ This document details how dev-lifecycle invokes each coordinated skill: what com
 - `/gsd:complete-milestone` -- Complete a milestone with verification
 
 **When dev-lifecycle invokes:**
-- **Stage 1 PLAN:** `/gsd:discuss-phase` then `/gsd:plan-phase` to create structured plans
+- **Stage 1 PLAN:** dev-lifecycle generates spec + prototype independently (Read: $CLAUDE_SKILL_DIR/references/plan-stage.md). GSD available for broader project planning if user invokes directly.
 - **Stage 3 TEST:** `/gsd:verify-work` to verify implementation against plan criteria
 
 **Expected output:**
-- Stage 1: CONTEXT.md, RESEARCH.md, PLAN.md files in `.planning/phases/`
+- Stage 1: .lifecycle/features/{name}/spec.md + prototype.html (via plan-stage.md adapter)
 - Stage 3: Verification report with pass/fail per criterion
 
 ---
