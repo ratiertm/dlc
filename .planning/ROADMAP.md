@@ -62,10 +62,10 @@ Plans:
   2. Hash-based SPA routing enables screen-to-screen navigation without a server
   3. Every interactive element carries data-* attributes (data-screen, data-action, data-field, data-error) linking back to spec IDs
   4. An embedded JSON manifest lists all screens, actions, and fields so tools can parse the prototype programmatically
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] 03-01: TBD
+- [ ] 03-01-PLAN.md — Create prototype template, format reference doc, and working user-login example prototype
 
 ### Phase 4: PLAN Stage
 **Goal**: The PLAN stage produces both an E2E spec and a clickable prototype for each feature, blocking until user approves both
