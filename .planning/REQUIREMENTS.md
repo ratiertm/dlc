@@ -95,46 +95,46 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SPEC-01 | TBD | Pending |
-| SPEC-02 | TBD | Pending |
-| SPEC-03 | TBD | Pending |
-| SPEC-04 | TBD | Pending |
-| SPEC-05 | TBD | Pending |
-| PROTO-01 | TBD | Pending |
-| PROTO-02 | TBD | Pending |
-| PROTO-03 | TBD | Pending |
-| PROTO-04 | TBD | Pending |
-| PROTO-05 | TBD | Pending |
-| PROTO-06 | TBD | Pending |
-| FOUND-01 | TBD | Pending |
-| FOUND-02 | TBD | Pending |
-| FOUND-03 | TBD | Pending |
-| FOUND-04 | TBD | Pending |
-| FOUND-05 | TBD | Pending |
-| MEMO-01 | TBD | Pending |
-| MEMO-02 | TBD | Pending |
-| MEMO-03 | TBD | Pending |
-| MEMO-04 | TBD | Pending |
-| PIPE-01 | TBD | Pending |
-| PIPE-02 | TBD | Pending |
-| PIPE-03 | TBD | Pending |
-| PIPE-04 | TBD | Pending |
-| PIPE-05 | TBD | Pending |
-| PIPE-06 | TBD | Pending |
-| PIPE-07 | TBD | Pending |
-| PIPE-08 | TBD | Pending |
-| PIPE-09 | TBD | Pending |
-| ARCH-01 | TBD | Pending |
-| ARCH-02 | TBD | Pending |
-| ARCH-03 | TBD | Pending |
-| ARCH-04 | TBD | Pending |
-| ARCH-05 | TBD | Pending |
+| SPEC-01 | Phase 2 | Pending |
+| SPEC-02 | Phase 4 | Pending |
+| SPEC-03 | Phase 5 | Pending |
+| SPEC-04 | Phase 6 | Pending |
+| SPEC-05 | Phase 5 | Pending |
+| PROTO-01 | Phase 3 | Pending |
+| PROTO-02 | Phase 3 | Pending |
+| PROTO-03 | Phase 3 | Pending |
+| PROTO-04 | Phase 3 | Pending |
+| PROTO-05 | Phase 4 | Pending |
+| PROTO-06 | Phase 6 | Pending |
+| FOUND-01 | Phase 1 | Pending |
+| FOUND-02 | Phase 1 | Pending |
+| FOUND-03 | Phase 1 | Pending |
+| FOUND-04 | Phase 10 | Pending |
+| FOUND-05 | Phase 1 | Pending |
+| MEMO-01 | Phase 8 | Pending |
+| MEMO-02 | Phase 8 | Pending |
+| MEMO-03 | Phase 8 | Pending |
+| MEMO-04 | Phase 8 | Pending |
+| PIPE-01 | Phase 4 | Pending |
+| PIPE-02 | Phase 5 | Pending |
+| PIPE-03 | Phase 6 | Pending |
+| PIPE-04 | Phase 7 | Pending |
+| PIPE-05 | Phase 9 | Pending |
+| PIPE-06 | Phase 9 | Pending |
+| PIPE-07 | Phase 9 | Pending |
+| PIPE-08 | Phase 9 | Pending |
+| PIPE-09 | Phase 9 | Pending |
+| ARCH-01 | Phase 10 | Pending |
+| ARCH-02 | Phase 10 | Pending |
+| ARCH-03 | Phase 10 | Pending |
+| ARCH-04 | Phase 7 | Pending |
+| ARCH-05 | Phase 10 | Pending |
 
 **Coverage:**
 - v1 requirements: 34 total
-- Mapped to phases: 0
-- Unmapped: 34 ⚠️
+- Mapped to phases: 34
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-22*
-*Last updated: 2026-03-22 after research v2 (UI prototype + E2E spec as core)*
+*Last updated: 2026-03-22 after roadmap v2 (SPEC/PROTO integrated into inner loop)*
