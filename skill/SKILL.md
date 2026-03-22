@@ -103,16 +103,19 @@ Pipeline:
 
 ### Stage 4: COMMIT
 
-Purpose: Save verified work with meaningful commit history.
-Tool: Git (direct)
-Supporting: ADR (reference in commit message)
+Purpose: Verify all spec steps passed, validate required artifacts exist, generate why-centric commit message with ADR references. Blocks on verification failures with specific gap list. Dual gate: both Claude structural and user behavioral verification must have passed in TEST stage.
+Primary: dev-lifecycle (verification gate + commit orchestration)
+Supporting: Git (direct commit execution), ADR (reference in commit msg)
 Outputs: Commit hash, version tag (optional)
 
-Rules:
-- Commit message focuses on "why", not "what"
-- Version tag format: `v{major}.{minor}.{patch}`
-- Exclude sensitive files (`.env`, credentials)
-- Reference related ADRs: `(ADR-NNN)` in commit message
+Read: `$CLAUDE_SKILL_DIR/references/commit-stage.md`
+
+Pipeline:
+1. Stage initialization (gate check 3_to_4, content-level verification.json check)
+2. Verification gate display (gap list if blocked, override option)
+3. Commit preparation (collect files, detect ADRs, generate why-centric message)
+4. Git commit execution (stage files, exclude sensitive/runtime, capture hash)
+5. Completion (register outputs in manifest, update state, announce)
 
 ### Stage 5: DEPLOY
 

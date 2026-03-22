@@ -9,7 +9,7 @@ This document maps all 9 stages of the dev-lifecycle pipeline to their primary a
 | 1 | PLAN | dev-lifecycle (spec + prototype generation) | GSD (broader planning), PDCA (`/pdca plan`), ADR (trade-off detection) | Run preflight, generate spec + prototype, enforce agreement gate |
 | 2 | DO | dev-lifecycle (spec-driven implementation) | PDCA (quality support), ADR (auto-detect decisions), WHY+SEE comments | Run spec checklist, track per-step status, log deviations, detect ADR moments |
 | 3 | TEST | dev-lifecycle (spec + prototype verification) | GSD (`/gsd:verify-work`), PDCA (`/pdca analyze`) | Run per-step spec verification, prototype structural comparison, generate behavioral checklist, enforce dual verification gate |
-| 4 | COMMIT | Git (direct) | ADR (reference in commit msg) | Verify artifacts exist before allowing commit |
+| 4 | COMMIT | dev-lifecycle (verification gate + commit orchestration) | Git (direct), ADR (reference in commit msg) | Enforce verification gate, generate why-centric commit, register outputs |
 | 5 | DEPLOY | Project-specific template | None | Provide deploy template, track deploy artifact |
 | 6 | DEPLOY TEST | Project-specific template | None | Provide smoke test template, gate next stage |
 | 7 | DOCUMENT | canvas-design (optional) | Mermaid (inline) | Trigger documentation generation |
@@ -41,6 +41,7 @@ When multiple skills could handle a task, dev-lifecycle follows this priority:
 | dev-lifecycle vs GSD in Stage 3 | dev-lifecycle is primary for spec-driven and prototype structural verification. GSD is available for broader project-level verification. PDCA provides gap analysis. These are complementary. |
 | dev-lifecycle vs PDCA in Stage 2 | dev-lifecycle is primary for spec-driven implementation tracking. PDCA is available for quality cycles if user invokes directly. These are complementary. |
 | ADR auto-detection during Stage 2 | ADR runs in parallel with implementation. Both outputs are registered. |
+| dev-lifecycle vs Git in Stage 4 | dev-lifecycle is primary for COMMIT orchestration (verification gate, message generation, artifact validation). Git is the direct tool for commit execution. These are complementary. |
 | Manual skill invocation during any stage | Always allowed. dev-lifecycle tracks the output if active. |
 
 ## Stage Output Types
@@ -52,7 +53,7 @@ Each stage produces specific artifact types that get registered in manifest.json
 | 1 PLAN | spec (required), prototype (required) |
 | 2 DO | code, spec-updated (required), adr (optional) |
 | 3 TEST | verification (required), test-report (required) |
-| 4 COMMIT | commit-hash, tag (optional) |
+| 4 COMMIT | commit-hash (required), tag (optional) |
 | 5 DEPLOY | deploy-log, deploy-artifact |
 | 6 DEPLOY TEST | smoke-test-report |
 | 7 DOCUMENT | architecture-doc, sequence-doc |
