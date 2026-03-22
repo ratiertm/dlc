@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 1: Foundation** - Generic skill scaffold, state management, artifact registry, role matrix
 - [x] **Phase 2: E2E Spec Format** - Define the 5-layer spec chain format and spec ID system (completed 2026-03-22)
 - [ ] **Phase 3: Prototype Format** - Define the single-file HTML+JS prototype template with data attributes and manifest
-- [ ] **Phase 4: PLAN Stage** - Spec generation + prototype generation + user agreement gate
+- [x] **Phase 4: PLAN Stage** - Spec generation + prototype generation + user agreement gate (completed 2026-03-22)
 - [ ] **Phase 5: DO Stage** - Spec-as-checklist implementation + deviation logging + ADR detection
 - [ ] **Phase 6: TEST Stage** - Spec layer verification + prototype structural diff + manual test steps
 - [ ] **Phase 7: COMMIT Stage** - Verification gate + artifact validation + why-centric commit
@@ -184,7 +184,7 @@ Note: Phase 8 depends only on Phase 1 and can run in parallel with Phases 2-7 if
 | 1. Foundation | 0/2 | Not started | - |
 | 2. E2E Spec Format | 1/1 | Complete   | 2026-03-22 |
 | 3. Prototype Format | 0/1 | Not started | - |
-| 4. PLAN Stage | 0/2 | Not started | - |
+| 4. PLAN Stage | 2/2 | Complete   | 2026-03-22 |
 | 5. DO Stage | 0/2 | Not started | - |
 | 6. TEST Stage | 0/2 | Not started | - |
 | 7. COMMIT Stage | 0/1 | Not started | - |
