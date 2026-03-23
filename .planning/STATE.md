@@ -3,11 +3,11 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: gstack-pattern-adoption
 status: planning
-stopped_at: Defining requirements
+stopped_at: Roadmap created, ready for phase planning
 last_updated: "2026-03-24T00:00:00.000Z"
-last_activity: 2026-03-24 -- Milestone v2.0 started (gstack pattern adoption)
+last_activity: 2026-03-24 -- v2.0 roadmap created (5 phases, 19 requirements)
 progress:
-  total_phases: 0
+  total_phases: 5
   completed_phases: 0
   total_plans: 0
   completed_plans: 0
@@ -21,25 +21,29 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-24)
 
 **Core value:** 개발 과정 산출물이 AI의 외부 메모리 역할을 하여, 재작업과 맥락 유실을 근본적으로 방지한다.
-**Current focus:** v2.0 Milestone — gstack 패턴 차용
+**Current focus:** v2.0 Milestone -- gstack 패턴 차용 (Phase 11: Configuration)
 
 ## Current Position
 
-Phase: Not started (defining requirements)
-Plan: —
-Status: Defining requirements
-Last activity: 2026-03-24 — Milestone v2.0 started
+Phase: 11 - Configuration (not started)
+Plan: --
+Status: Roadmap created, awaiting phase planning
+Last activity: 2026-03-24 -- v2.0 roadmap created
 
-Progress: [██████████] 100%
+Progress: [..........] 0% (0/5 phases)
 
 ## Performance Metrics
 
-**Velocity:**
-- Total plans completed: 6
-- Average duration: 3.2min
-- Total execution time: 0.32 hours
+**v1.0 Velocity (reference):**
+- Total plans completed: 20
+- Average duration: ~2.5min
+- Total execution time: ~0.8 hours
 
-**By Phase:**
+**v2.0 Velocity:**
+- Total plans completed: 0
+- No data yet
+
+**By Phase (v1.0 - completed):**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
@@ -47,26 +51,12 @@ Progress: [██████████] 100%
 | 02-e2e-spec-format | 1 | 2min | 2min |
 | 03-prototype-format | 1 | 3min | 3min |
 | 04-plan-stage | 2 | 4min | 2min |
-
-**Recent Trend:**
-- Last 5 plans: 2min, 2min, 3min, 2min, 2min
-- Trend: accelerating
-
-*Updated after each plan completion*
-| Phase 04-plan-stage P01 | 2min | 1 tasks | 1 files |
-| Phase 04-plan-stage P02 | 2min | 2 tasks | 3 files |
-| Phase 05-do-stage P01 | 2min | 2 tasks | 1 files |
-| Phase 05-do-stage P02 | 1min | 2 tasks | 4 files |
-| Phase 06-test-stage P01 | 3min | 2 tasks | 1 files |
-| Phase 06-test-stage P02 | 2min | 2 tasks | 4 files |
-| Phase 07-commit-stage P01 | 3min | 2 tasks | 1 files |
-| Phase 07-commit-stage P02 | 1min | 2 tasks | 4 files |
-| Phase 08-memory-decision-trail P01 | 1min | 2 tasks | 3 files |
-| Phase 08-memory-decision-trail P02 | 2min | 2 tasks | 4 files |
-| Phase 09-outer-loop P01 | 5min | 2 tasks | 5 files |
-| Phase 09-outer-loop P02 | 2min | 2 tasks | 2 files |
-| Phase 10-skill-architecture-resilience P01 | 4min | 2 tasks | 4 files |
-| Phase 10-skill-architecture-resilience P02 | 1min | 1 tasks | 1 files |
+| 05-do-stage | 2 | 3min | 1.5min |
+| 06-test-stage | 2 | 5min | 2.5min |
+| 07-commit-stage | 2 | 4min | 2min |
+| 08-memory-decision-trail | 2 | 3min | 1.5min |
+| 09-outer-loop | 2 | 7min | 3.5min |
+| 10-skill-architecture | 2 | 5min | 2.5min |
 
 ## Accumulated Context
 
@@ -75,45 +65,20 @@ Progress: [██████████] 100%
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
-- [Roadmap v2]: SPEC/PROTO requirements integrated into inner loop stages (PLAN/DO/TEST), not isolated in separate late phases. Formats defined in Phases 2-3, used in Phases 4-6.
-- [Roadmap v2]: 10 phases at fine granularity. Inner loop before outer loop. Memory system (Phase 8) parallelizable with inner loop.
-- [01-01]: Files stored in both ~/.claude/skills/dev-lifecycle/ (runtime) and skill/ (version-controlled) for git tracking
-- [01-01]: Gate rules use simple existence checks -- complex verification deferred to later phases
+- [v2.0 Roadmap]: 5 phases (11-15) at fine granularity derived from 19 requirements in 5 categories
+- [v2.0 Roadmap]: Configuration (Phase 11) is foundational -- other phases depend on config settings
+- [v2.0 Roadmap]: Iteration (Phase 12) before Upgrade (Phase 13) -- iteration patterns inform migration needs
+- [v2.0 Roadmap]: Observability (Phase 14) near end -- cross-cutting, benefits from all prior phases being stable
+- [v2.0 Roadmap]: Ecosystem (Phase 15) last -- integration layer that ties everything together
+- [v2.0 Roadmap]: Phase 13 (Upgrade) can run in parallel with Phase 12 if desired (independent after Phase 11)
+
+### v1.0 Key Decisions (preserved for context)
+
 - [Phase 01-02]: SKILL.md kept at 252 lines with progressive disclosure via references/ pointers
-- [02-01]: 5-step chain (not 7) with Storage as mandatory field within Processing -- lower overhead per spec
-- [02-01]: Sequential IDs across interactions within a feature (no sub-IDs needed)
-- [02-01]: Spec format resolved: Markdown (.spec.md) with YAML frontmatter, not standalone YAML
-- [03-01]: Four-section HTML layout (HEAD/MANIFEST/SCREENS/ENGINE) as canonical prototype structure
-- [03-01]: 8 domain-specific data-* attributes with dual spec linking (data-spec-id + manifest specMapping)
-- [03-01]: Processing step simulated as loading screen with auto-transition (800ms)
-- [Phase 04-01]: Draft-then-revise for spec generation -- show concrete artifact, iterate on feedback
-- [Phase 04-01]: Agreement gate requires explicit browser verification before accepting user approval
-- [Phase 04-02]: Stage 1 outputs changed from optional to required (spec + prototype must always be produced)
-- [Phase 04-02]: GSD moved to supporting role for Stage 1; dev-lifecycle is primary for spec+prototype generation
-- [Phase 05-do-stage]: DO Stage adapter mirrors plan-stage.md structure (Step 0-5 + anti-patterns + file locations)
-- [Phase 05-02]: Stage 2 output types changed from 'code, prototype (optional)' to 'code, spec-updated (required), adr (optional)'
-- [Phase 06-01]: Dual output for TEST: verification.json (machine-parseable) + verification.md (human-readable)
-- [Phase 06-01]: Deviation-aware verification reads approved deviations before checking criteria
-- [Phase 06-01]: No auto-fix on failure: FAIL reported to user, user decides direction
-- [Phase 06-01]: Dual-gate COMMIT blocking: Claude structural + user behavioral both required
-- [Phase 06-02]: Stage 3 TEST primary changed from GSD to dev-lifecycle for spec-driven and prototype structural verification
-- [Phase 07-01]: Content-level verification gate reads verification.json overall+user status, not just outputs.length > 0
-- [Phase 07-01]: Override flow requires explicit user 'override' keyword, recorded in commit message and manifest
-- [Phase 07-02]: Stage 4 COMMIT now uses dev-lifecycle as primary (was Git direct), completing inner loop skill alignment for all 4 stages
-- [Phase 08-01]: Three memory templates created: settings changelog (Date|File|Change|Reason), decision log (Date|Decision|Reason), Living State (6-section aggregation doc)
-- [Phase 08-01]: Generation instructions embedded as HTML comment in living-state.md with source mapping and truncation limits (last 20 settings, last 10 decisions)
-- [Phase 08-02]: Memory triggers appended to existing steps (not inline modifications) to preserve adapter stability
-- [Phase 08-02]: WHY+SEE scope limited to SKILL.md cross-reference + verification of existing do-stage.md pattern (MEMO-04)
-- [Phase 09-01]: Deploy is user-guided: Claude provides checklists, does not run production commands
-- [Phase 09-01]: Retrospect delegates to gsd-retrospective/adr/work-log skills instead of reimplementing
-- [Phase 09-01]: Promote uses skip-first design: skip is default, no penalty for skipping
-- [Phase 09-01]: Document uses Mermaid diagrams as default (not canvas-design)
+- [02-01]: 5-step chain (not 7) with Storage as mandatory field within Processing
 - [Phase 09-02]: All 9 stages now use identical section format (Purpose/Primary/Supporting/Outputs/Read/Pipeline)
-- [Phase 09-02]: dev-lifecycle is primary orchestrator for all 9 stages including outer loop
-- [Phase 10-01]: Inline cat command in SessionStart hook (not separate script) for simplicity
 - [Phase 10-01]: Conservative reconcile defaults (not_started status, feature mode) for safety over confidence
-- [Phase 10-01]: Auto-skip cascades through multiple skippable stages in one transition pass
-- [Phase 10-02]: Architecture audit confirms ARCH-01 (339/500 lines) and ARCH-02 (all 9 stages use adapter pattern) compliance
+- [Phase 10-02]: Architecture audit confirms ARCH-01 (339/500 lines) and ARCH-02 compliance
 
 ### Pending Todos
 
@@ -121,12 +86,12 @@ None yet.
 
 ### Blockers/Concerns
 
-- Compaction bug (#13919) may cause context loss -- design all artifacts to be re-readable from filesystem
-- SKILL.md 500-line budget requires careful progressive disclosure planning
-- ~~Spec format resolution needed in Phase 2~~ RESOLVED: Markdown (.spec.md) with YAML frontmatter
+- SKILL.md 500-line budget (currently 339) -- v2.0 features must fit within remaining ~160 lines or use references/
+- Config system design must be compatible with existing state.json pattern
+- Upgrade/migration must handle projects that started with v1.0 .lifecycle/ structure
 
 ## Session Continuity
 
-Last session: 2026-03-22T11:40:05.891Z
-Stopped at: Completed 10-02-PLAN.md
+Last session: 2026-03-24
+Stopped at: v2.0 roadmap created, ready for `/gsd:plan-phase 11`
 Resume file: None

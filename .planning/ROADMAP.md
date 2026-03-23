@@ -2,192 +2,98 @@
 
 ## Overview
 
-This roadmap delivers a Claude Code skill that orchestrates the full development lifecycle with two core innovations woven into every inner loop stage: E2E Feature Specs and User Interaction Prototypes. PLAN inherently creates specs and prototypes. DO inherently implements against them. TEST inherently verifies against them. The roadmap starts with foundation and format definitions, then builds each inner loop stage with spec+prototype integration baked in, followed by memory systems, the outer loop, and architectural hardening. 10 phases at fine granularity.
+### v1.0 (Completed)
+
+10 phases delivered the core dev-lifecycle skill: foundation, E2E spec format, prototype format, inner loop stages (PLAN/DO/TEST/COMMIT), memory & decision trail, outer loop (DEPLOY through PROMOTE), and skill architecture hardening. All 34 v1.0 requirements complete.
+
+### v2.0 (Active) -- gstack Pattern Adoption
+
+5 phases adopt proven patterns from gstack: file-based configuration, stage-internal iteration loops, safe upgrade/migration, observability/analytics, and ecosystem skill integration. Phases numbered 11-15 continuing from v1.0. 19 requirements at fine granularity.
 
 ## Phases
 
 **Phase Numbering:**
-- Integer phases (1, 2, 3): Planned milestone work
-- Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
+- Phases 1-10: v1.0 (all complete)
+- Phases 11-15: v2.0 (active milestone)
+- Decimal phases (e.g., 12.1): Urgent insertions (marked with INSERTED)
 
-Decimal phases appear between their surrounding integers in numeric order.
-
-- [ ] **Phase 1: Foundation** - Generic skill scaffold, state management, artifact registry, role matrix
-- [x] **Phase 2: E2E Spec Format** - Define the 5-layer spec chain format and spec ID system (completed 2026-03-22)
-- [ ] **Phase 3: Prototype Format** - Define the single-file HTML+JS prototype template with data attributes and manifest
-- [x] **Phase 4: PLAN Stage** - Spec generation + prototype generation + user agreement gate (completed 2026-03-22)
-- [x] **Phase 5: DO Stage** - Spec-as-checklist implementation + deviation logging + ADR detection (completed 2026-03-22)
-- [x] **Phase 6: TEST Stage** - Spec layer verification + prototype structural diff + manual test steps (completed 2026-03-22)
-- [x] **Phase 7: COMMIT Stage** - Verification gate + artifact validation + why-centric commit (completed 2026-03-22)
-- [ ] **Phase 8: Memory & Decision Trail** - Settings changelog, decision log, Living State Document, code-ADR linking
-- [x] **Phase 9: Outer Loop** - DEPLOY, DEPLOY TEST, DOCUMENT, RETROSPECT, PROMOTE stages (completed 2026-03-22)
-- [x] **Phase 10: Skill Architecture & Resilience** - Progressive disclosure, session hooks, state reconciliation, execution modes (completed 2026-03-22)
+- [x] ~~Phase 1-10: v1.0 Foundation through Architecture~~ (all complete)
+- [ ] **Phase 11: Configuration** - File-based lifecycle-config with layered settings and change tracking
+- [ ] **Phase 12: Stage-Internal Iteration** - Mini-verify loops in DO, Completeness scoring, decision comparison
+- [ ] **Phase 13: Lifecycle Upgrade** - Schema migration, migration markers, rollback, changelog
+- [ ] **Phase 14: Observability & Analytics** - Session tracking, stage transition logs, rework events, snapshot diff, time metrics
+- [ ] **Phase 15: Ecosystem Integration** - gstack skill suggestions at stage transitions, opt-out, extensible mapping
 
 ## Phase Details
 
-### Phase 1: Foundation
-**Goal**: A generic, project-agnostic dev-lifecycle skill exists with working state management and artifact tracking
-**Depends on**: Nothing (first phase)
-**Requirements**: FOUND-01, FOUND-02, FOUND-03, FOUND-05
+### Phase 11: Configuration
+**Goal**: Users can manage lifecycle behavior through a unified config system with layered precedence and automatic change tracking
+**Depends on**: Phase 10 (v1.0 complete)
+**Requirements**: CONF-01, CONF-02, CONF-03
 **Success Criteria** (what must be TRUE):
-  1. User can invoke the dev-lifecycle skill from any project directory without muse-specific references or assumptions
-  2. state.json persists current stage, active feature, and progress across sessions
-  3. Each stage's output is registered in a manifest and available as required input to the next stage
-  4. A role matrix document clearly states which skill (GSD, PDCA, ADR, retro, work-log) handles what within each stage
-**Plans**: 2 plans
+  1. User can get/set any lifecycle setting (mode, skip_stages, proactive, auto_skip, verification_strictness) via lifecycle-config commands
+  2. Settings resolve correctly through three layers: environment variable overrides .lifecycle/config.yaml overrides built-in defaults
+  3. Every config change is automatically logged in settings-changelog with the reason for the change
+**Plans**: TBD
 
-Plans:
-- [ ] 01-01-PLAN.md — Create references/ and templates/ foundation artifacts (role-matrix, stage-transitions, project-detection, skill-invocation, state.json, manifest.json)
-- [ ] 01-02-PLAN.md — Rewrite SKILL.md: remove muse hardcoding, implement progressive disclosure
-
-### Phase 2: E2E Spec Format
-**Goal**: A well-defined, machine-parseable E2E spec format exists that captures the full feature chain from screen to error handling
-**Depends on**: Phase 1
-**Requirements**: SPEC-01
+### Phase 12: Stage-Internal Iteration
+**Goal**: The DO stage catches implementation issues immediately through step-level mini-verification, and all stages communicate quality through Completeness scoring
+**Depends on**: Phase 11 (config controls iteration behavior)
+**Requirements**: ITER-01, ITER-02, ITER-03, ITER-04
 **Success Criteria** (what must be TRUE):
-  1. A feature interaction can be described using the 5-layer chain (Screen, Connection, Processing, Response, Error) with clear per-layer fields
-  2. Each spec step has a unique spec ID (e2e-NNN) that can be referenced across all artifacts (spec, prototype, code, verification)
-  3. The format is documented with at least one realistic example spec
-**Plans**: 1 plan
+  1. After implementing each spec step in DO, a mini-verify check runs immediately (not deferred to the TEST stage)
+  2. When a mini-verify fails, DO automatically loops on that step (QA -> Fix -> Verify) until it passes before moving to the next step
+  3. Each stage completion reports a Completeness score (N/10) based on artifact quality and coverage metrics
+  4. When a decision point has multiple options, each option shows its Completeness comparison (e.g., Option A: 6/10 vs Option B: 9/10) to inform the choice
+**Plans**: TBD
 
-Plans:
-- [ ] 02-01-PLAN.md — Create spec template, format reference doc, and realistic user-login example spec
-
-### Phase 3: Prototype Format
-**Goal**: A prototype template exists that produces clickable single-file HTML prototypes with embedded manifest and semantic data attributes
-**Depends on**: Phase 2
-**Requirements**: PROTO-01, PROTO-02, PROTO-03, PROTO-04
+### Phase 13: Lifecycle Upgrade
+**Goal**: Users can safely upgrade dev-lifecycle to new versions with automatic migration, rollback safety, and clear communication of changes
+**Depends on**: Phase 11 (config schema is the first thing that needs migration support)
+**Requirements**: UPGR-01, UPGR-02, UPGR-03, UPGR-04
 **Success Criteria** (what must be TRUE):
-  1. A single HTML file opens with file:// in any browser and renders a clickable multi-screen prototype
-  2. Hash-based SPA routing enables screen-to-screen navigation without a server
-  3. Every interactive element carries data-* attributes (data-screen, data-action, data-field, data-error) linking back to spec IDs
-  4. An embedded JSON manifest lists all screens, actions, and fields so tools can parse the prototype programmatically
-**Plans**: 1 plan
+  1. After git pull, .lifecycle/ files are automatically migrated to the new schema version without manual intervention
+  2. Migration markers (e.g., .lifecycle/.v2-migrated) prevent completed migrations from re-running on subsequent upgrades
+  3. If a migration fails, the user can roll back to the pre-upgrade state with all data intact
+  4. After upgrade, the user sees a summary of what changed (new features, schema changes, deprecated settings)
+**Plans**: TBD
 
-Plans:
-- [ ] 03-01-PLAN.md — Create prototype template, format reference doc, and working user-login example prototype
-
-### Phase 4: PLAN Stage
-**Goal**: The PLAN stage produces both an E2E spec and a clickable prototype for each feature, blocking until user approves both
-**Depends on**: Phase 2, Phase 3
-**Requirements**: SPEC-02, PROTO-05, PIPE-01
+### Phase 14: Observability & Analytics
+**Goal**: Users have full visibility into their development process through session context files, stage transition analytics, rework tracking, and spec-vs-implementation diffs
+**Depends on**: Phase 12 (iteration data feeds into analytics)
+**Requirements**: OBSV-01, OBSV-02, OBSV-03, OBSV-04, OBSV-05
 **Success Criteria** (what must be TRUE):
-  1. Running PLAN for a feature generates both spec.md and prototype.html in the feature directory
-  2. User can open the prototype in a browser, click through all screens, and provide feedback
-  3. PLAN does not complete until user explicitly approves both spec and prototype (hard agreement gate)
-  4. Preflight check validates prerequisites before spec/prototype generation begins
-**Plans**: 2 plans
+  1. Each session creates a context file in .lifecycle/sessions/ capturing decisions made and artifacts touched during that session
+  2. Stage transitions are logged to .lifecycle/analytics/stage-transitions.jsonl with timestamps, enabling transition pattern analysis
+  3. Backward stage transitions (rework) are tracked in .lifecycle/analytics/rework-events.jsonl with reason and impact
+  4. User can generate a before/after snapshot diff comparing the original spec baseline against the current implementation delta
+  5. Time-per-stage metrics are recorded and available so the user can identify bottleneck stages
+**Plans**: TBD
 
-Plans:
-- [ ] 04-01-PLAN.md — Create PLAN Stage adapter reference (preflight, spec generation, prototype generation, agreement gate)
-- [ ] 04-02-PLAN.md — Update SKILL.md, role-matrix.md, skill-invocation.md to reflect dev-lifecycle as primary for Stage 1
-
-### Phase 5: DO Stage
-**Goal**: The DO stage uses the approved E2E spec as an implementation checklist, tracking per-layer completion and logging deviations
-**Depends on**: Phase 4
-**Requirements**: SPEC-03, SPEC-05, PIPE-02
+### Phase 15: Ecosystem Integration
+**Goal**: Stage transitions proactively suggest relevant companion skills, with user control over suggestion behavior and an extensible skill mapping
+**Depends on**: Phase 11 (proactive setting), Phase 14 (analytics inform suggestions)
+**Requirements**: ECOS-01, ECOS-02, ECOS-03
 **Success Criteria** (what must be TRUE):
-  1. During implementation, each spec layer (Screen, Connection, Processing, Response, Error) is tracked with a completion status
-  2. If implementation deviates from the approved spec, the deviation is recorded in a log with reason and impact
-  3. ADR-worthy decisions are detected and recorded with WHY+SEE comments in the code
-  4. The DO stage refuses to start without a PLAN-approved spec
-**Plans**: 2 plans
-
-Plans:
-- [ ] 05-01-PLAN.md — Create DO Stage adapter reference (spec checklist, deviation logging, ADR detection, completion)
-- [ ] 05-02-PLAN.md — Update SKILL.md and role-matrix.md to reflect dev-lifecycle as primary for Stage 2
-
-### Phase 6: TEST Stage
-**Goal**: The TEST stage verifies implementation against both the E2E spec (per-layer pass/fail) and the prototype (structural comparison), producing actionable results for both Claude and the user
-**Depends on**: Phase 5
-**Requirements**: SPEC-04, PROTO-06, PIPE-03
-**Success Criteria** (what must be TRUE):
-  1. Each spec layer is verified with a clear PASS/FAIL status and a verification report is generated
-  2. Prototype manifest is structurally compared against actual implementation to detect missing screens, actions, or fields
-  3. TEST produces specific manual test steps the user can execute for behavioral verification
-  4. Both Claude's structural verification and user's behavioral verification are required before proceeding
-**Plans**: 2 plans
-
-Plans:
-- [ ] 06-01-PLAN.md — Create TEST Stage adapter reference (per-step spec verification, prototype structural comparison, user behavioral checklist, dual verification gate)
-- [ ] 06-02-PLAN.md — Update SKILL.md and role-matrix.md to reflect dev-lifecycle as primary for Stage 3
-
-### Phase 7: COMMIT Stage
-**Goal**: The COMMIT stage blocks until all spec steps pass verification, then creates a why-centric commit with artifact references
-**Depends on**: Phase 6
-**Requirements**: PIPE-04, ARCH-04
-**Success Criteria** (what must be TRUE):
-  1. COMMIT is blocked if any spec step has FAIL status -- user sees a specific gap list pointing to what needs fixing
-  2. The commit message centers on "why" and references relevant ADRs
-  3. Stage transition gate validates all required artifacts (spec, prototype, verification report) exist before allowing COMMIT
-**Plans**: 2 plans
-
-Plans:
-- [ ] 07-01-PLAN.md — Create COMMIT Stage adapter reference (verification gate, gap list, why-centric commit, artifact validation, override flow)
-- [ ] 07-02-PLAN.md — Update SKILL.md Stage 4 section and role-matrix.md to reflect dev-lifecycle as primary for Stage 4
-
-### Phase 8: Memory & Decision Trail
-**Goal**: Every settings change, decision, and state transition is automatically recorded and accessible for future context restoration
-**Depends on**: Phase 1
-**Requirements**: MEMO-01, MEMO-02, MEMO-03, MEMO-04
-**Success Criteria** (what must be TRUE):
-  1. When a setting or config changes, the change is automatically recorded with context (why) and value (what)
-  2. Lightweight decisions accumulate in a one-line-per-entry log without requiring full ADR ceremony
-  3. A Living State Document exists that, when read at session start, restores full project context instantly
-  4. ADR references appear as WHY+SEE comments in code, making future follow-up traceable
-**Plans**: 2 plans
-
-Plans:
-- [ ] 08-01-PLAN.md — Create memory artifact templates (settings changelog, decision log, Living State Document)
-- [ ] 08-02-PLAN.md — Wire memory update triggers into stage adapters and update SKILL.md with Living State + WHY+SEE cross-reference
-
-### Phase 9: Outer Loop
-**Goal**: Stages 5-9 (DEPLOY, DEPLOY TEST, DOCUMENT, RETROSPECT, PROMOTE) are operational with project-type-aware templates
-**Depends on**: Phase 7
-**Requirements**: PIPE-05, PIPE-06, PIPE-07, PIPE-08, PIPE-09
-**Success Criteria** (what must be TRUE):
-  1. User can deploy using a project-type-appropriate template (web, API, CLI, desktop)
-  2. Smoke tests verify server state, core flows, and resources after deployment
-  3. DOCUMENT stage generates or updates architecture diagrams, CLAUDE.md, and README.md
-  4. RETROSPECT produces a retrospective with ADR gap check, work-log entry, and Living State update
-  5. PROMOTE optionally generates demo content (skippable without penalty)
-**Plans**: 2 plans
-
-Plans:
-- [ ] 09-01-PLAN.md — Create 5 outer loop adapter reference files (deploy, deploy-test, document, retrospect, promote) following Inner Loop pattern
-- [ ] 09-02-PLAN.md — Update SKILL.md Stage 5-9 sections with Read directives and role-matrix.md with dev-lifecycle as primary
-
-### Phase 10: Skill Architecture & Resilience
-**Goal**: The skill is production-ready with progressive disclosure, automatic session restoration, state resilience, and execution mode support
-**Depends on**: Phase 8, Phase 9
-**Requirements**: ARCH-01, ARCH-02, ARCH-03, ARCH-05, FOUND-04
-**Success Criteria** (what must be TRUE):
-  1. SKILL.md is under 500 lines with detailed logic in references/ files loaded on demand
-  2. Existing skills (GSD, PDCA, ADR, retro, work-log) are called through adapter interfaces without modification
-  3. SessionStart hook automatically loads the Living State Document so context is restored without user action
-  4. If state.json is lost or corrupted, the system reconstructs state from filesystem artifacts (reconcile)
-  5. User can select execution mode (hotfix/feature/release/milestone) to skip unnecessary stages
-**Plans**: 2 plans
-
-Plans:
-- [ ] 10-01-PLAN.md — SessionStart hook, state reconcile procedure, execution mode skip logic
-- [ ] 10-02-PLAN.md — Audit progressive disclosure (ARCH-01) and adapter pattern (ARCH-02) compliance
+  1. At each stage transition, the system suggests relevant gstack/companion skills (e.g., review at COMMIT, qa at TEST, investigate at DO)
+  2. User can disable all proactive suggestions by setting proactive: false in lifecycle-config
+  3. The skill suggestion mapping is documented in a reference file and extensible (new skills can be added without modifying core logic)
+**Plans**: TBD
 
 ## Progress
 
-**Execution Order:**
-Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10
-Note: Phase 8 depends only on Phase 1 and can run in parallel with Phases 2-7 if desired.
+**v1.0 Execution (Complete):**
+Phases 1-10 all complete. 34/34 requirements delivered.
+
+**v2.0 Execution Order:**
+Phase 11 -> 12 -> 13 -> 14 -> 15
+Note: Phase 13 (Upgrade) depends on Phase 11 but is otherwise independent of Phase 12. Could run in parallel with 12 if desired.
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/2 | Not started | - |
-| 2. E2E Spec Format | 1/1 | Complete   | 2026-03-22 |
-| 3. Prototype Format | 0/1 | Not started | - |
-| 4. PLAN Stage | 2/2 | Complete   | 2026-03-22 |
-| 5. DO Stage | 2/2 | Complete   | 2026-03-22 |
-| 6. TEST Stage | 2/2 | Complete   | 2026-03-22 |
-| 7. COMMIT Stage | 2/2 | Complete   | 2026-03-22 |
-| 8. Memory & Decision Trail | 2/2 | Complete   | 2026-03-22 |
-| 9. Outer Loop | 2/2 | Complete   | 2026-03-22 |
-| 10. Skill Architecture & Resilience | 2/2 | Complete    | 2026-03-22 |
+| 1-10. v1.0 | 20/20 | Complete | 2026-03-22 |
+| 11. Configuration | 0/? | Not started | - |
+| 12. Stage-Internal Iteration | 0/? | Not started | - |
+| 13. Lifecycle Upgrade | 0/? | Not started | - |
+| 14. Observability & Analytics | 0/? | Not started | - |
+| 15. Ecosystem Integration | 0/? | Not started | - |

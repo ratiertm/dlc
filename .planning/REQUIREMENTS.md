@@ -129,6 +129,8 @@
 
 ## Traceability
 
+### v1.0 (Complete)
+
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | SPEC-01 | Phase 2 | Complete |
@@ -171,11 +173,35 @@
 - Mapped to phases: 34
 - Unmapped: 0
 
+### v2.0 (Active)
+
+| Requirement | Phase | Status |
+|-------------|-------|--------|
+| CONF-01 | Phase 11 | Pending |
+| CONF-02 | Phase 11 | Pending |
+| CONF-03 | Phase 11 | Pending |
+| ITER-01 | Phase 12 | Pending |
+| ITER-02 | Phase 12 | Pending |
+| ITER-03 | Phase 12 | Pending |
+| ITER-04 | Phase 12 | Pending |
+| UPGR-01 | Phase 13 | Pending |
+| UPGR-02 | Phase 13 | Pending |
+| UPGR-03 | Phase 13 | Pending |
+| UPGR-04 | Phase 13 | Pending |
+| OBSV-01 | Phase 14 | Pending |
+| OBSV-02 | Phase 14 | Pending |
+| OBSV-03 | Phase 14 | Pending |
+| OBSV-04 | Phase 14 | Pending |
+| OBSV-05 | Phase 14 | Pending |
+| ECOS-01 | Phase 15 | Pending |
+| ECOS-02 | Phase 15 | Pending |
+| ECOS-03 | Phase 15 | Pending |
+
 **v2.0 Coverage:**
 - v2 requirements: 19 total
-- Mapped to phases: 0
-- Unmapped: 19 ⚠️
+- Mapped to phases: 19
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-22*
-*Last updated: 2026-03-24 after v2.0 milestone requirements definition*
+*Last updated: 2026-03-24 after v2.0 roadmap creation*
