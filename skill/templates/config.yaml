@@ -1,0 +1,22 @@
+# Dev Lifecycle Configuration
+# Manage with: lifecycle-config get|set|list
+# Env overrides: LIFECYCLE_<KEY> (e.g., LIFECYCLE_MODE=hotfix)
+
+# Execution mode: hotfix | feature | release | milestone
+mode: feature
+
+# Stages to always skip (list of stage numbers)
+# Overrides mode defaults when non-empty
+skip_stages: []
+
+# Suggest companion skills at stage transitions
+proactive: true
+
+# Auto-skip skippable stages without prompting
+auto_skip: true
+
+# Verification strictness: strict | standard | relaxed
+# strict: all spec steps must pass, no overrides
+# standard: all must pass, override with justification
+# relaxed: warnings only, no blocking
+verification_strictness: standard
