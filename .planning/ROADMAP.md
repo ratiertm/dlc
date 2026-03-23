@@ -34,7 +34,10 @@
   1. User can get/set any lifecycle setting (mode, skip_stages, proactive, auto_skip, verification_strictness) via lifecycle-config commands
   2. Settings resolve correctly through three layers: environment variable overrides .lifecycle/config.yaml overrides built-in defaults
   3. Every config change is automatically logged in settings-changelog with the reason for the change
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [ ] 11-01-PLAN.md — Create config template and lifecycle-config reference (resolution algorithm, get/set/list, changelog integration)
+- [ ] 11-02-PLAN.md — Integrate config into SKILL.md and update stage-transitions for config-aware mode resolution
 
 ### Phase 12: Stage-Internal Iteration
 **Goal**: The DO stage catches implementation issues immediately through step-level mini-verification, and all stages communicate quality through Completeness scoring
@@ -92,7 +95,7 @@ Note: Phase 13 (Upgrade) depends on Phase 11 but is otherwise independent of Pha
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1-10. v1.0 | 20/20 | Complete | 2026-03-22 |
-| 11. Configuration | 0/? | Not started | - |
+| 11. Configuration | 0/2 | Planning | - |
 | 12. Stage-Internal Iteration | 0/? | Not started | - |
 | 13. Lifecycle Upgrade | 0/? | Not started | - |
 | 14. Observability & Analytics | 0/? | Not started | - |
