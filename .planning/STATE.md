@@ -1,34 +1,34 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.0
-milestone_name: milestone
-status: completed
-stopped_at: Completed 10-02-PLAN.md
-last_updated: "2026-03-22T11:43:59.121Z"
-last_activity: 2026-03-22 -- Plan 10-02 executed (Architecture audit, ARCH-01/ARCH-02 verified)
+milestone: v2.0
+milestone_name: gstack-pattern-adoption
+status: planning
+stopped_at: Defining requirements
+last_updated: "2026-03-24T00:00:00.000Z"
+last_activity: 2026-03-24 -- Milestone v2.0 started (gstack pattern adoption)
 progress:
-  total_phases: 10
-  completed_phases: 10
-  total_plans: 18
-  completed_plans: 18
-  percent: 100
+  total_phases: 0
+  completed_phases: 0
+  total_plans: 0
+  completed_plans: 0
+  percent: 0
 ---
 
 # Project State
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-03-22)
+See: .planning/PROJECT.md (updated 2026-03-24)
 
 **Core value:** 개발 과정 산출물이 AI의 외부 메모리 역할을 하여, 재작업과 맥락 유실을 근본적으로 방지한다.
-**Current focus:** Phase 10 - Skill Architecture & Resilience
+**Current focus:** v2.0 Milestone — gstack 패턴 차용
 
 ## Current Position
 
-Phase: 10 of 10 (Skill Architecture & Resilience) -- COMPLETE
-Plan: 2 of 2 in current phase (All plans complete)
-Status: Phase 10 complete -- all phases done
-Last activity: 2026-03-22 -- Plan 10-02 executed (Architecture audit, ARCH-01/ARCH-02 verified)
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-03-24 — Milestone v2.0 started
 
 Progress: [██████████] 100%
 
