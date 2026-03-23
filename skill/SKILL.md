@@ -278,6 +278,17 @@ Read: `$CLAUDE_SKILL_DIR/references/stage-transitions.md`
 
 Note: Mode selection is stored in `state.json` for forward compatibility. Advanced mode-based behavior will be enhanced in later phases.
 
+## Configuration
+
+Settings are managed through `.lifecycle/config.yaml` with 3-layer resolution:
+1. **Environment variable:** `LIFECYCLE_{KEY}` (e.g., `LIFECYCLE_MODE=hotfix`)
+2. **Config file:** `.lifecycle/config.yaml`
+3. **Built-in defaults:** mode=feature, skip_stages=[], proactive=true, auto_skip=true, verification_strictness=standard
+
+Config file is created from template on first `set` operation. System works with defaults when no config file exists.
+
+Read: `$CLAUDE_SKILL_DIR/references/lifecycle-config.md`
+
 ## Skill Orchestration
 
 dev-lifecycle orchestrates existing skills. It never executes stage work directly.
@@ -313,6 +324,9 @@ Read: `$CLAUDE_SKILL_DIR/references/project-detection.md`
 | "deploy" | Deploy request | Stage 5 (DEPLOY) |
 | "document" / "diagram" | Doc request | Stage 7 (DOCUMENT) |
 | "retro" / "retrospective" | Retro request | Stage 8 (RETROSPECT) |
+| "lifecycle-config get {key}" | Config query | Resolve and display setting value |
+| "lifecycle-config set {key} {value}" | Config change | Write config, log to settings-changelog |
+| "lifecycle-config list" / "config" / "settings" | Config overview | Display all resolved settings with sources |
 | `/gsd:complete-milestone` | Milestone complete | Stage 3 through 8 full run |
 
 ## Edge Cases
