@@ -60,7 +60,43 @@
 - [x] **ARCH-04**: Stage 전환 게이트 — 필수 artifact 없이 다음 Stage 진입 차단
 - [x] **ARCH-05**: state.json 유실 시 파일시스템에서 상태 복원 (reconcile)
 
-## v2 Requirements
+## v2.0 Requirements
+
+### Configuration
+
+- [ ] **CONF-01**: User can get/set lifecycle settings via lifecycle-config pattern (mode, skip_stages, proactive, auto_skip, verification_strictness)
+- [ ] **CONF-02**: Settings are layered — environment variable > .lifecycle/config.yaml > defaults
+- [ ] **CONF-03**: Config changes are automatically recorded in settings-changelog with reason
+
+### Iteration
+
+- [ ] **ITER-01**: During DO stage, each spec step is mini-verified immediately after implementation (not deferred to TEST)
+- [ ] **ITER-02**: When mini-verify fails, DO loops on that step until pass (inner QA→Fix→Verify)
+- [ ] **ITER-03**: Each stage reports a Completeness score (N/10) based on artifact quality and coverage
+- [ ] **ITER-04**: Decision points present options with Completeness comparison (Option A: 6/10 vs Option B: 9/10)
+
+### Upgrade
+
+- [ ] **UPGR-01**: User can upgrade dev-lifecycle via git pull with automatic schema migration of .lifecycle/ files
+- [ ] **UPGR-02**: Migration markers (.lifecycle/.v2-migrated etc.) prevent re-running completed migrations
+- [ ] **UPGR-03**: Failed migration can be rolled back to pre-upgrade state
+- [ ] **UPGR-04**: Upgrade shows changelog summary of what changed
+
+### Observability
+
+- [ ] **OBSV-01**: Each session creates a context file in .lifecycle/sessions/ with decisions and artifacts touched
+- [ ] **OBSV-02**: Stage transitions are logged to .lifecycle/analytics/stage-transitions.jsonl with timestamps
+- [ ] **OBSV-03**: Rework events (backward stage transitions) are tracked in .lifecycle/analytics/rework-events.jsonl
+- [ ] **OBSV-04**: Before/after snapshot diff compares spec baseline against implementation delta
+- [ ] **OBSV-05**: Time-per-stage metrics are available for bottleneck identification
+
+### Ecosystem
+
+- [ ] **ECOS-01**: Stage transitions suggest relevant gstack/companion skills (review at COMMIT, qa at TEST, investigate at DO)
+- [ ] **ECOS-02**: Proactive suggestions can be disabled via proactive: false in config
+- [ ] **ECOS-03**: Skill suggestion mapping is documented and extensible (new skills can be added to the map)
+
+## v3 Requirements (Deferred)
 
 ### Enhanced Automation
 
@@ -130,11 +166,16 @@
 | ARCH-04 | Phase 7 | Complete |
 | ARCH-05 | Phase 10 | Complete |
 
-**Coverage:**
+**v1.0 Coverage:**
 - v1 requirements: 34 total
 - Mapped to phases: 34
 - Unmapped: 0
 
+**v2.0 Coverage:**
+- v2 requirements: 19 total
+- Mapped to phases: 0
+- Unmapped: 19 ⚠️
+
 ---
 *Requirements defined: 2026-03-22*
-*Last updated: 2026-03-22 after roadmap v2 (SPEC/PROTO integrated into inner loop)*
+*Last updated: 2026-03-24 after v2.0 milestone requirements definition*
