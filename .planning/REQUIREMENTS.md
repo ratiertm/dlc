@@ -64,9 +64,9 @@
 
 ### Configuration
 
-- [ ] **CONF-01**: User can get/set lifecycle settings via lifecycle-config pattern (mode, skip_stages, proactive, auto_skip, verification_strictness)
-- [ ] **CONF-02**: Settings are layered — environment variable > .lifecycle/config.yaml > defaults
-- [ ] **CONF-03**: Config changes are automatically recorded in settings-changelog with reason
+- [x] **CONF-01**: User can get/set lifecycle settings via lifecycle-config pattern (mode, skip_stages, proactive, auto_skip, verification_strictness)
+- [x] **CONF-02**: Settings are layered — environment variable > .lifecycle/config.yaml > defaults
+- [x] **CONF-03**: Config changes are automatically recorded in settings-changelog with reason
 
 ### Iteration
 
@@ -177,9 +177,9 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| CONF-01 | Phase 11 | Pending |
-| CONF-02 | Phase 11 | Pending |
-| CONF-03 | Phase 11 | Pending |
+| CONF-01 | Phase 11 | Complete |
+| CONF-02 | Phase 11 | Complete |
+| CONF-03 | Phase 11 | Complete |
 | ITER-01 | Phase 12 | Pending |
 | ITER-02 | Phase 12 | Pending |
 | ITER-03 | Phase 12 | Pending |
