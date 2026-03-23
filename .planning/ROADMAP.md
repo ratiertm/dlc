@@ -18,7 +18,7 @@
 - Decimal phases (e.g., 12.1): Urgent insertions (marked with INSERTED)
 
 - [x] ~~Phase 1-10: v1.0 Foundation through Architecture~~ (all complete)
-- [ ] **Phase 11: Configuration** - File-based lifecycle-config with layered settings and change tracking
+- [x] **Phase 11: Configuration** - File-based lifecycle-config with layered settings and change tracking (completed 2026-03-23)
 - [ ] **Phase 12: Stage-Internal Iteration** - Mini-verify loops in DO, Completeness scoring, decision comparison
 - [ ] **Phase 13: Lifecycle Upgrade** - Schema migration, migration markers, rollback, changelog
 - [ ] **Phase 14: Observability & Analytics** - Session tracking, stage transition logs, rework events, snapshot diff, time metrics
@@ -95,7 +95,7 @@ Note: Phase 13 (Upgrade) depends on Phase 11 but is otherwise independent of Pha
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1-10. v1.0 | 20/20 | Complete | 2026-03-22 |
-| 11. Configuration | 1/2 | In Progress|  |
+| 11. Configuration | 2/2 | Complete   | 2026-03-23 |
 | 12. Stage-Internal Iteration | 0/? | Not started | - |
 | 13. Lifecycle Upgrade | 0/? | Not started | - |
 | 14. Observability & Analytics | 0/? | Not started | - |

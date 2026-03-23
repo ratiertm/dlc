@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: completed
-stopped_at: Completed 11-01-PLAN.md
-last_updated: "2026-03-23T22:36:12.102Z"
-last_activity: 2026-03-24 -- Completed 11-01 config foundation
+stopped_at: Completed 11-02-PLAN.md
+last_updated: "2026-03-23T22:40:10.000Z"
+last_activity: 2026-03-24 -- Completed 11-02 config integration
 progress:
   total_phases: 5
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 2
-  completed_plans: 1
+  completed_plans: 2
   percent: 50
 ---
 
@@ -25,12 +25,12 @@ See: .planning/PROJECT.md (updated 2026-03-24)
 
 ## Current Position
 
-Phase: 11 - Configuration (in progress)
-Plan: 02 of 2
-Status: Plan 01 complete, ready for Plan 02
-Last activity: 2026-03-24 -- Completed 11-01 config foundation
+Phase: 11 - Configuration (completed)
+Plan: 2 of 2 (all complete)
+Status: Phase 11 complete
+Last activity: 2026-03-24 -- Completed 11-02 config integration
 
-Progress: [█████░░░░░] 50% (1/2 plans in phase 11)
+Progress: [██████████] 100% (2/2 plans in phase 11)
 
 ## Performance Metrics
 
@@ -40,7 +40,7 @@ Progress: [█████░░░░░] 50% (1/2 plans in phase 11)
 - Total execution time: ~0.8 hours
 
 **v2.0 Velocity:**
-- Total plans completed: 1
+- Total plans completed: 2
 - Average duration: ~2min
 
 **By Phase (v1.0 - completed):**
@@ -58,6 +58,7 @@ Progress: [█████░░░░░] 50% (1/2 plans in phase 11)
 | 09-outer-loop | 2 | 7min | 3.5min |
 | 10-skill-architecture | 2 | 5min | 2.5min |
 | Phase 11-configuration P01 | 2min | 2 tasks | 2 files |
+| Phase 11-configuration P02 | 2min | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -73,6 +74,8 @@ Recent decisions affecting current work:
 - [v2.0 Roadmap]: Ecosystem (Phase 15) last -- integration layer that ties everything together
 - [v2.0 Roadmap]: Phase 13 (Upgrade) can run in parallel with Phase 12 if desired (independent after Phase 11)
 - [Phase 11-configuration]: YAML for config file format (human-readable with comments); config.yaml is source of truth for mode, state.json reflects it
+- [Phase 11-02]: Config section placed between Execution Modes and Skill Orchestration in SKILL.md
+- [Phase 11-02]: skip_stages union: config supplements mode defaults, never removes required stages
 
 ### v1.0 Key Decisions (preserved for context)
 
@@ -88,12 +91,11 @@ None yet.
 
 ### Blockers/Concerns
 
-- SKILL.md 500-line budget (currently 339) -- v2.0 features must fit within remaining ~160 lines or use references/
-- Config system design must be compatible with existing state.json pattern
+- SKILL.md 500-line budget (currently 353) -- v2.0 features must fit within remaining ~147 lines or use references/
 - Upgrade/migration must handle projects that started with v1.0 .lifecycle/ structure
 
 ## Session Continuity
 
-Last session: 2026-03-23T22:36:12.099Z
-Stopped at: Completed 11-01-PLAN.md
+Last session: 2026-03-23T22:40:10Z
+Stopped at: Completed 11-02-PLAN.md (Phase 11 complete)
 Resume file: None
