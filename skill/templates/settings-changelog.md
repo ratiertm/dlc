@@ -16,4 +16,4 @@ Copy to `.lifecycle/settings-changelog.md` on first settings change detection.
 
 1. Append only -- never edit or remove existing entries
 2. One row per change, even if multiple changes happen in one session
-3. Settings files include: .env*, *.config.*, package.json (scripts/dependencies), tsconfig.json, *.yaml/*.toml config files, framework config files
+3. Settings files include: .env*, *.config.*, package.json (scripts/dependencies), tsconfig.json, *.yaml/*.toml config files, framework config files, .lifecycle/config.yaml (lifecycle settings via lifecycle-config set)

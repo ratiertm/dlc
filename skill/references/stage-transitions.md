@@ -47,13 +47,17 @@ When a stage is skipped:
 2. The gate condition for the next stage is automatically satisfied
 3. The skip is recorded in the transition history
 
+Configuration reference: `$CLAUDE_SKILL_DIR/references/lifecycle-config.md`
+Settings changes are logged to `.lifecycle/settings-changelog.md` (see SKILL.md Configuration section).
+
 ## Auto-Skip Procedure
 
 When transitioning from completed Stage N, apply mode-based auto-skip:
 
 1. Determine next_stage = N + 1
-2. Read current mode from state.json (`current.mode`)
+2. Resolve current mode using config layers (env > .lifecycle/config.yaml > state.json). See lifecycle-config reference for full resolution algorithm.
 3. Look up skippable stages for current mode (see Mode-Based Stage Skipping table)
+3b. Check `.lifecycle/config.yaml` `skip_stages:` list. Union with mode skippable stages (additive -- config skip_stages supplements mode defaults, never removes required stages). Also check env: `LIFECYCLE_SKIP_STAGES` (comma-separated integers).
 4. If next_stage is in the skippable list:
    a. Set stage next_stage status to "skipped" in state.json
    b. Record skip in .lifecycle/history/ with entry:
@@ -76,7 +80,11 @@ Note: Auto-skip cascades -- if stages 5 and 6 are both skippable, transitioning 
 
 When transitioning from Stage N to Stage N+1:
 
-1. **Read state.json** -- get current stage number and status
+1. **Read state and config** -- get current stage, status from state.json. Resolve mode using config layers:
+   a. Check env: `echo "${LIFECYCLE_MODE:-}"` -- if set, use this
+   b. If empty: read `.lifecycle/config.yaml` `mode:` value
+   c. If not found: use state.json `current.mode` (backward compat default)
+   Update state.json `current.mode` if config layer value differs.
 2. **Check gate condition** -- evaluate the gate rule for current -> next transition against manifest.json
 3. **If gate passes:**
    - Update state.json: `current.stage = N+1`, `current.stage_name = <next stage name>`, `current.status = "not_started"`
