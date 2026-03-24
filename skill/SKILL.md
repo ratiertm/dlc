@@ -39,6 +39,9 @@ On session start (or after compaction):
 1. **Read state:** Load `.lifecycle/state.json`
    - If not exists AND `.lifecycle/` directory exists: **Reconcile** (Read: `$CLAUDE_SKILL_DIR/references/state-reconcile.md`)
    - If not exists AND no `.lifecycle/`: Initialize from `$CLAUDE_SKILL_DIR/templates/state.json`, create `.lifecycle/` directory
+1b. **Version check:** Compare `$CLAUDE_SKILL_DIR/VERSION` against `.lifecycle/.dlc-version`
+   - If `.dlc-version` missing or older: Read `$CLAUDE_SKILL_DIR/references/lifecycle-upgrade.md` and run migration
+   - If versions match: continue normally
 2. **Read Living State (if exists):** Load `.lifecycle/LIVING-STATE.md`
    - This single file restores full project context: current state, active settings, recent decisions, event timeline, key ADRs, and resume hint
    - If not exists: skip (first session or pre-Phase-8 project)
@@ -342,14 +345,21 @@ Read: `$CLAUDE_SKILL_DIR/references/project-detection.md`
 
 Match the user's language. Technical terms (GSD, ADR, PDCA, Git) stay in English.
 
-<!-- Architecture Audit (Phase 10)
-ARCH-01: SKILL.md 327 lines (limit: 500) -- PASS
+## Upgrade
+
+When the skill version (`$CLAUDE_SKILL_DIR/VERSION`) is newer than the project's `.lifecycle/.dlc-version`, migration runs automatically during Session Start step 1b. Migration is safe: pre-migration backup enables rollback on failure.
+
+Read: `$CLAUDE_SKILL_DIR/references/lifecycle-upgrade.md`
+Read: `$CLAUDE_SKILL_DIR/CHANGELOG.md`
+
+<!-- Architecture Audit (Phase 13)
+ARCH-01: SKILL.md 365 lines (limit: 500) -- PASS
 ARCH-02: All 9 stages use Read directives, no inline logic -- PASS
-References: 16/15 files present (includes state-reconcile.md added in 10-01) -- PASS
+References: 19/19 files present -- PASS
 Templates: 7/7 files present -- PASS
-Orchestration: "never executes stage work directly" confirmed (line 283) -- PASS
+Orchestration: "never executes stage work directly" confirmed -- PASS
 Role Matrix: All 9 stages list dev-lifecycle as Primary -- PASS
 Supporting Skills: Referenced by name only, no modification instructions -- PASS
 Skill Invocation: Commands reference existing skill entry points -- PASS
-Audit date: 2026-03-22
+Audit date: 2026-03-25
 -->
