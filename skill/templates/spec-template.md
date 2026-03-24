@@ -9,6 +9,27 @@ steps: {number}
 tags: []
 ---
 
+<!-- Status values:
+  pending        -- Not yet implemented
+  implemented    -- Code written, not yet verified
+  verified (attempt N) -- Mini-verify passed during DO (N = attempt number)
+  implemented (override: {reason}) -- Mini-verify skipped with user justification
+  failed (N attempts) -- Mini-verify failed after N retry attempts
+  verified       -- TEST stage verification passed
+  failed         -- TEST stage verification failed
+
+  Step-level status lifecycle:
+  pending --(DO implements)--> implemented --(mini-verify pass)--> verified (attempt N)
+                                  |                                      |
+                                  +--(mini-verify fail x3)--> failed (3 attempts)
+                                  |                                      |
+                                  +--(user override)--> implemented (override: {reason})
+                                                                         |
+                                             All three continue to TEST stage:
+                                             --(TEST verifies)--> verified
+                                             --(TEST fails)--> failed
+-->
+
 # E2E Spec: {Title}
 
 {One-line round-trip summary: User does X -> stored in Y -> user sees Z}
