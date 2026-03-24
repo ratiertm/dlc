@@ -48,7 +48,10 @@ Plans:
   2. When a mini-verify fails, DO automatically loops on that step (QA -> Fix -> Verify) until it passes before moving to the next step
   3. Each stage completion reports a Completeness score (N/10) based on artifact quality and coverage metrics
   4. When a decision point has multiple options, each option shows its Completeness comparison (e.g., Option A: 6/10 vs Option B: 9/10) to inform the choice
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [ ] 12-01-PLAN.md — Add mini-verify loop and retry logic to DO stage (do-stage.md Step 2d.1/2d.2, spec-template Status values)
+- [ ] 12-02-PLAN.md — Create Completeness scoring reference and integrate into SKILL.md, living-state, and DO completion
 
 ### Phase 13: Lifecycle Upgrade
 **Goal**: Users can safely upgrade dev-lifecycle to new versions with automatic migration, rollback safety, and clear communication of changes
@@ -96,7 +99,7 @@ Note: Phase 13 (Upgrade) depends on Phase 11 but is otherwise independent of Pha
 |-------|----------------|--------|-----------|
 | 1-10. v1.0 | 20/20 | Complete | 2026-03-22 |
 | 11. Configuration | 2/2 | Complete    | 2026-03-23 |
-| 12. Stage-Internal Iteration | 0/? | Not started | - |
+| 12. Stage-Internal Iteration | 0/2 | Planning complete | - |
 | 13. Lifecycle Upgrade | 0/? | Not started | - |
 | 14. Observability & Analytics | 0/? | Not started | - |
 | 15. Ecosystem Integration | 0/? | Not started | - |
