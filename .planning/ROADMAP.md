@@ -62,7 +62,10 @@ Plans:
   2. Migration markers (e.g., .lifecycle/.v2-migrated) prevent completed migrations from re-running on subsequent upgrades
   3. If a migration fails, the user can roll back to the pre-upgrade state with all data intact
   4. After upgrade, the user sees a summary of what changed (new features, schema changes, deprecated settings)
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [ ] 13-01-PLAN.md — Create VERSION, CHANGELOG, and lifecycle-upgrade.md reference (migration algorithm, backup/rollback, idempotent registry)
+- [ ] 13-02-PLAN.md — Wire version check into SKILL.md Session Start, add Upgrade section, update state.json template to v2.0
 
 ### Phase 14: Observability & Analytics
 **Goal**: Users have full visibility into their development process through session context files, stage transition analytics, rework tracking, and spec-vs-implementation diffs
@@ -100,6 +103,6 @@ Note: Phase 13 (Upgrade) depends on Phase 11 but is otherwise independent of Pha
 | 1-10. v1.0 | 20/20 | Complete | 2026-03-22 |
 | 11. Configuration | 2/2 | Complete    | 2026-03-23 |
 | 12. Stage-Internal Iteration | 2/2 | Complete    | 2026-03-24 |
-| 13. Lifecycle Upgrade | 0/? | Not started | - |
+| 13. Lifecycle Upgrade | 0/2 | Not started | - |
 | 14. Observability & Analytics | 0/? | Not started | - |
 | 15. Ecosystem Integration | 0/? | Not started | - |
