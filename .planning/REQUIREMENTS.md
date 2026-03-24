@@ -72,8 +72,8 @@
 
 - [x] **ITER-01**: During DO stage, each spec step is mini-verified immediately after implementation (not deferred to TEST)
 - [x] **ITER-02**: When mini-verify fails, DO loops on that step until pass (inner QA→Fix→Verify)
-- [ ] **ITER-03**: Each stage reports a Completeness score (N/10) based on artifact quality and coverage
-- [ ] **ITER-04**: Decision points present options with Completeness comparison (Option A: 6/10 vs Option B: 9/10)
+- [x] **ITER-03**: Each stage reports a Completeness score (N/10) based on artifact quality and coverage
+- [x] **ITER-04**: Decision points present options with Completeness comparison (Option A: 6/10 vs Option B: 9/10)
 
 ### Upgrade
 
@@ -182,8 +182,8 @@
 | CONF-03 | Phase 11 | Complete |
 | ITER-01 | Phase 12 | Complete |
 | ITER-02 | Phase 12 | Complete |
-| ITER-03 | Phase 12 | Pending |
-| ITER-04 | Phase 12 | Pending |
+| ITER-03 | Phase 12 | Complete |
+| ITER-04 | Phase 12 | Complete |
 | UPGR-01 | Phase 13 | Pending |
 | UPGR-02 | Phase 13 | Pending |
 | UPGR-03 | Phase 13 | Pending |
