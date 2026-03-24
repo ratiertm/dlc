@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: completed
-stopped_at: Completed 12-02-PLAN.md (Phase 12 complete)
-last_updated: "2026-03-24T14:05:06.570Z"
-last_activity: 2026-03-24 -- Completed 12-02 Completeness scoring system
+status: in_progress
+stopped_at: Completed 13-01-PLAN.md
+last_updated: "2026-03-24T20:14:44Z"
+last_activity: 2026-03-25 -- Completed 13-01 Upgrade infrastructure files
 progress:
   total_phases: 5
   completed_phases: 2
-  total_plans: 4
-  completed_plans: 4
-  percent: 100
+  total_plans: 6
+  completed_plans: 5
+  percent: 83
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-24)
 
 **Core value:** 개발 과정 산출물이 AI의 외부 메모리 역할을 하여, 재작업과 맥락 유실을 근본적으로 방지한다.
-**Current focus:** v2.0 Milestone -- gstack 패턴 차용 (Phase 12: Stage-Internal Iteration)
+**Current focus:** v2.0 Milestone -- Phase 13: Lifecycle Upgrade
 
 ## Current Position
 
-Phase: 12 - Stage-Internal Iteration (complete)
-Plan: 2 of 2 (all complete)
-Status: Phase 12 complete
-Last activity: 2026-03-24 -- Completed 12-02 Completeness scoring system
+Phase: 13 - Lifecycle Upgrade (in progress)
+Plan: 1 of 2 (13-01 complete)
+Status: Plan 13-01 complete, 13-02 pending
+Last activity: 2026-03-25 -- Completed 13-01 Upgrade infrastructure files
 
-Progress: [██████████] 100% (2/2 plans in phase 12)
+Progress: [████████░░] 83% (5/6 plans across v2.0)
 
 ## Performance Metrics
 
@@ -40,7 +40,7 @@ Progress: [██████████] 100% (2/2 plans in phase 12)
 - Total execution time: ~0.8 hours
 
 **v2.0 Velocity:**
-- Total plans completed: 3
+- Total plans completed: 5
 - Average duration: ~2min
 
 **By Phase (v1.0 - completed):**
@@ -61,6 +61,7 @@ Progress: [██████████] 100% (2/2 plans in phase 12)
 | Phase 11-configuration P02 | 2min | 2 tasks | 3 files |
 | Phase 12-iteration P01 | 2min | 2 tasks | 2 files |
 | Phase 12-iteration P02 | 2min | 2 tasks | 4 files |
+| Phase 13-upgrade P01 | 2min | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -82,6 +83,9 @@ Recent decisions affecting current work:
 - [Phase 12-01]: Standard strictness allows override only after at least 1 retry attempt
 - [Phase 12-02]: Completeness score stored in state.json current.completeness (not manifest.json)
 - [Phase 12-02]: SKILL.md additions kept to 2 lines (355 total, well under 370 budget)
+- [Phase 13-01]: Migration markers use dot-prefixed files (.v2-migrated, .dlc-version) for hidden filesystem convention
+- [Phase 13-01]: State reconcile runs before migration when state.json missing (ordered dependency)
+- [Phase 13-01]: Backup directory (.upgrade-backup/) cleaned in both success and failure paths
 
 ### v1.0 Key Decisions (preserved for context)
 
@@ -102,6 +106,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-24T14:00:19Z
-Stopped at: Completed 12-02-PLAN.md (Phase 12 complete)
-Resume file: .planning/phases/12-stage-internal-iteration/12-02-SUMMARY.md
+Last session: 2026-03-24T20:14:44Z
+Stopped at: Completed 13-01-PLAN.md
+Resume file: .planning/phases/13-lifecycle-upgrade/13-01-SUMMARY.md
