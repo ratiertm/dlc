@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: completed
-stopped_at: Phase 12 context gathered
-last_updated: "2026-03-24T13:22:23.086Z"
-last_activity: 2026-03-24 -- Completed 11-02 config integration
+status: in_progress
+stopped_at: Completed 12-01 mini-verify plan
+last_updated: "2026-03-24T13:55:44Z"
+last_activity: 2026-03-24 -- Completed 12-01 mini-verify and retry loop
 progress:
   total_phases: 5
   completed_phases: 1
-  total_plans: 2
-  completed_plans: 2
+  total_plans: 4
+  completed_plans: 3
   percent: 100
 ---
 
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-24)
 
 **Core value:** 개발 과정 산출물이 AI의 외부 메모리 역할을 하여, 재작업과 맥락 유실을 근본적으로 방지한다.
-**Current focus:** v2.0 Milestone -- gstack 패턴 차용 (Phase 11: Configuration)
+**Current focus:** v2.0 Milestone -- gstack 패턴 차용 (Phase 12: Stage-Internal Iteration)
 
 ## Current Position
 
-Phase: 11 - Configuration (completed)
-Plan: 2 of 2 (all complete)
-Status: Phase 11 complete
-Last activity: 2026-03-24 -- Completed 11-02 config integration
+Phase: 12 - Stage-Internal Iteration (in progress)
+Plan: 1 of 2 (12-01 complete)
+Status: Plan 12-01 complete, 12-02 pending
+Last activity: 2026-03-24 -- Completed 12-01 mini-verify and retry loop
 
-Progress: [██████████] 100% (2/2 plans in phase 11)
+Progress: [█████░░░░░] 50% (1/2 plans in phase 12)
 
 ## Performance Metrics
 
@@ -40,7 +40,7 @@ Progress: [██████████] 100% (2/2 plans in phase 11)
 - Total execution time: ~0.8 hours
 
 **v2.0 Velocity:**
-- Total plans completed: 2
+- Total plans completed: 3
 - Average duration: ~2min
 
 **By Phase (v1.0 - completed):**
@@ -59,6 +59,7 @@ Progress: [██████████] 100% (2/2 plans in phase 11)
 | 10-skill-architecture | 2 | 5min | 2.5min |
 | Phase 11-configuration P01 | 2min | 2 tasks | 2 files |
 | Phase 11-configuration P02 | 2min | 2 tasks | 3 files |
+| Phase 12-iteration P01 | 2min | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -76,6 +77,8 @@ Recent decisions affecting current work:
 - [Phase 11-configuration]: YAML for config file format (human-readable with comments); config.yaml is source of truth for mode, state.json reflects it
 - [Phase 11-02]: Config section placed between Execution Modes and Skill Orchestration in SKILL.md
 - [Phase 11-02]: skip_stages union: config supplements mode defaults, never removes required stages
+- [Phase 12-01]: Mini-verify inserts as sub-steps 2d.1/2d.2 within existing Step 2 flow (not separate steps)
+- [Phase 12-01]: Standard strictness allows override only after at least 1 retry attempt
 
 ### v1.0 Key Decisions (preserved for context)
 
@@ -96,6 +99,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-24T13:22:23.082Z
-Stopped at: Phase 12 context gathered
-Resume file: .planning/phases/12-stage-internal-iteration/12-CONTEXT.md
+Last session: 2026-03-24T13:55:44Z
+Stopped at: Completed 12-01-PLAN.md
+Resume file: .planning/phases/12-stage-internal-iteration/12-01-SUMMARY.md
