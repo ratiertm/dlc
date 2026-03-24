@@ -342,7 +342,16 @@ Checklist:
 Deviations: N recorded
 ADRs created: N
 Mini-verify: {passed}/{total} steps verified, {retries} total retries
+Completeness: {N}/10 ({brief justification})
 ```
+
+**d.5. Assess and display Completeness score:**
+
+Read: `$CLAUDE_SKILL_DIR/references/completeness-scoring.md`
+
+Evaluate the DO stage output quality considering: spec step coverage (verified vs implemented vs failed), deviation count, mini-verify retry count, and edge case handling. Display as part of the completion announcement (shown in the format above).
+
+Record in state.json: `current.completeness = { "score": N, "reason": "{justification}", "stage": "DO", "assessed_at": "{ISO-8601}" }`
 
 **e. Announce:** "DO complete. Ready for TEST stage."
 

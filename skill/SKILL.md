@@ -82,14 +82,16 @@ Supporting: ADR (auto-detect trade-offs), WHY+SEE code comments, PDCA (quality s
 Outputs: Code changes, updated spec (step statuses + deviations), ADR documents
 
 Read: `$CLAUDE_SKILL_DIR/references/do-stage.md`
+Read: `$CLAUDE_SKILL_DIR/references/completeness-scoring.md`
 
 Pipeline:
 1. Stage init (gate check, spec load, status update)
 2. Spec load and checklist build (read spec from disk, display progress)
 3. Per-step implementation (implement each chain step, add SPEC comments)
+   3a. Mini-verify each step (execution-level check, controlled by verification_strictness config)
 4. Deviation handling (detect, present to user, record with approval)
 5. ADR detection (deviation + tradeoff triggers, suggest ADR creation)
-6. Completion (artifact registration, state update)
+6. Completion (artifact registration, Completeness score, state update)
 
 ### Stage 3: TEST
 

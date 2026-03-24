@@ -12,6 +12,7 @@ Copy to `.lifecycle/LIVING-STATE.md` at project initialization. Regenerate (over
 ## Current State
 
 - Inner loop progress: {stages completed summary}
+- Completeness: {N}/10 ({brief justification})
 - Deviations: {count and brief summary}
 - Key blockers: {active blockers or "none"}
 
@@ -57,6 +58,7 @@ Update triggers:
 2. Every session end
 Sources:
 - state.json -> Current State, header fields, Resume Hint
+- state.json current.completeness -> Completeness score
 - settings-changelog.md -> Active Settings (last 20)
 - decisions.md -> Recent Decisions (last 10)
 - .lifecycle/history/ -> Event Timeline
