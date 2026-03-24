@@ -103,6 +103,6 @@ Note: Phase 13 (Upgrade) depends on Phase 11 but is otherwise independent of Pha
 | 1-10. v1.0 | 20/20 | Complete | 2026-03-22 |
 | 11. Configuration | 2/2 | Complete    | 2026-03-23 |
 | 12. Stage-Internal Iteration | 2/2 | Complete    | 2026-03-24 |
-| 13. Lifecycle Upgrade | 2/2 | Complete   | 2026-03-24 |
+| 13. Lifecycle Upgrade | 2/2 | Complete    | 2026-03-24 |
 | 14. Observability & Analytics | 0/? | Not started | - |
 | 15. Ecosystem Integration | 0/? | Not started | - |
