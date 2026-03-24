@@ -103,6 +103,78 @@ For each spec step with `**Status:** pending`:
 - Change `**Status:** pending` to `**Status:** implemented`
 - Write the change to disk immediately
 
+**d.1. Mini-verify the step:**
+
+Resolve `verification_strictness` using lifecycle-config resolution (env `LIFECYCLE_VERIFICATION_STRICTNESS` > `.lifecycle/config.yaml` > default `standard`):
+
+| Config Value | Mini-Verify Behavior | Status After |
+|-------------|---------------------|-------------|
+| `strict` | Execute verification command. Must pass. No override. | `verified (attempt N)` or `failed (3 attempts)` |
+| `standard` | Execute verification command. Must pass. User can override after at least 1 retry. | `verified (attempt N)` or `failed (3 attempts)` or `implemented (override: {justification})` |
+| `relaxed` | Skip execution. Code existence check only. | Status stays `implemented`, continue to 2e |
+
+If `relaxed`: skip mini-verify, continue to step 2e.
+
+Otherwise, determine verification command from `state.json` `project_type`:
+
+| Project Type | Verification Command | Success Signal |
+|-------------|---------------------|----------------|
+| node/react/next | `npm test -- --bail` or `npm run build` | exit code 0 |
+| python | `python -m pytest {test_file} -x` or `python -c "import {module}"` | exit code 0 |
+| flutter | `flutter test {test_file}` or `flutter analyze` | exit code 0 |
+| rust | `cargo check` or `cargo test {test_name}` | exit code 0 |
+| go | `go build ./...` or `go test ./{pkg}` | exit code 0 |
+| generic | Attempt build/compile command from project config | exit code 0 |
+
+Choose the most targeted command for the specific step:
+- Screen/Response steps: build/compile check
+- Connection/Processing steps: unit test if available, else build
+- Error steps: specific error case test if available
+- Timeout: 30 seconds max
+
+Execute and evaluate:
+- Run the verification command
+- Capture: exit code, stdout (last 20 lines), stderr (last 20 lines)
+- Success = exit code 0 AND no error patterns in output
+- On success: update spec.md status to `**Status:** verified (attempt 1)`, continue to step 2e
+- On failure: enter retry loop (step 2d.2)
+
+**d.2. Retry loop (on mini-verify failure):**
+
+On mini-verify failure, enter the QA->Fix->Verify loop (max 3 attempts):
+
+1. **Diagnose:** Analyze error output from verification command
+   - Identify the specific failure (compile error, test assertion, runtime error)
+   - Scope the fix to the failing step's code ONLY (do not modify other steps' files)
+
+2. **Fix:** Apply targeted fix to the failing code
+   - Modify ONLY files related to the current spec step
+   - Keep SPEC comment in place
+
+3. **Re-verify:** Run the same verification command again
+   - If pass: update status `**Status:** verified (attempt {N})`, continue to 2e
+   - If fail: increment attempt, continue loop
+
+4. **After 3 failures:** STOP retrying
+   - Update status: `**Status:** failed (3 attempts)`
+   - Report to user:
+     ```
+     Mini-verify FAILED after 3 attempts
+     =====================================
+     Step: e2e-{feature}-{NNN} ({title})
+     Last error: {error summary}
+     Attempts: 3/3
+
+     The step's code is implemented but verification fails.
+     Options:
+       1. I'll investigate and fix manually, then resume
+       2. Skip verification for this step (mark as implemented)
+       3. Revise the spec step if requirements changed
+     ```
+   - Wait for user direction before continuing to next step
+
+Note for `standard` strictness: user can also say "skip verification" after at least 1 retry attempt. Status becomes `**Status:** implemented (override: {justification})`.
+
 **e. Re-display the checklist with updated progress:**
 - Show updated `[x]`/`[ ]` markers
 - Update "N/M steps done" count
@@ -221,7 +293,7 @@ Routine implementation choices (which loop construct, variable naming, minor ref
 
 **Purpose:** Register outputs, update state, and announce readiness for TEST stage.
 
-**Trigger:** All spec steps have `**Status:** implemented`.
+**Trigger:** All spec steps have `**Status:** verified, implemented, or implemented (override). No step has `**Status:** failed or pending.
 
 **Actions:**
 
@@ -254,7 +326,7 @@ Include any ADR documents created as additional output entries with `"type": "ad
 - `session.last_active` = current ISO 8601 timestamp
 - `session.resume_hint` = `"DO complete. Ready for TEST stage."`
 
-**d. Display final checklist** showing all steps as `[x]`, deviation count, and ADR count:
+**d. Display final checklist** showing all steps as `[x]`, verification status, deviation count, ADR count, and mini-verify summary:
 
 ```
 DO Stage -- {feature-name} -- COMPLETE
@@ -263,11 +335,13 @@ Spec: .lifecycle/features/{feature-name}/spec.md
 Status: implementing (M/M steps done)
 
 Checklist:
-  [x] e2e-{feature}-001: {title} ({chain})
-  [x] e2e-{feature}-002: {title} ({chain})
+  [x] e2e-{feature}-001: {title} -- verified (attempt 1)
+  [x] e2e-{feature}-002: {title} -- verified (attempt 2)
+  [x] e2e-{feature}-003: {title} -- implemented (override: build timeout)
   ...
 Deviations: N recorded
 ADRs created: N
+Mini-verify: {passed}/{total} steps verified, {retries} total retries
 ```
 
 **e. Announce:** "DO complete. Ready for TEST stage."
@@ -294,6 +368,9 @@ These are the most common mistakes. Do NOT do any of these:
 | 4 | **Skipping SPEC comments** | `// SPEC: e2e-{feature}-{NNN}` comments are the traceability thread from spec to code. Without them, TEST stage cannot verify step-by-step. |
 | 5 | **Creating ADRs for every deviation** | Not all deviations are architectural decisions. Over-suggesting causes fatigue and devalues real ADRs. |
 | 6 | **Working from memory instead of reading spec from disk** | Spec IDs in memory may not match the actual file. Always read `.lifecycle/features/{feature-name}/spec.md` from disk at Step 1. |
+| 7 | **Retrying with the same approach** | Each retry must analyze the specific error and try a different fix. Repeating identical code wastes all 3 attempts. |
+| 8 | **Mini-verify running full test suite** | Always prefer targeted commands (single test file, single module compile). Timeout is 30 seconds -- full suites will exceed this. |
+| 9 | **Retry loop modifying unrelated code** | Fixes must be scoped to the current spec step's files. If the error requires changes outside the step's scope, escalate to user. |
 
 ## Relationship to Other Skills
 
