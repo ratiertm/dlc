@@ -1,5 +1,5 @@
 {
-  "version": "1.0",
+  "version": "2.0",
   "project": {
     "name": "",
     "type": "auto",
@@ -11,7 +11,8 @@
     "stage_name": "PLAN",
     "status": "not_started",
     "feature": null,
-    "mode": "feature"
+    "mode": "feature",
+    "completeness": null
   },
   "progress": {
     "stages_completed": [],

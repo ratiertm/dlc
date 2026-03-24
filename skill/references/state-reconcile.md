@@ -52,7 +52,7 @@ Build state.json with conservative defaults:
 
 ```json
 {
-  "version": "1.0",
+  "version": "2.0",
   "project": {
     "name": "<from manifest.json feature field, or parent directory name>",
     "type": "auto",
@@ -64,7 +64,8 @@ Build state.json with conservative defaults:
     "stage_name": "<stage name lookup>",
     "status": "not_started",
     "feature": "<from manifest.json feature field or null>",
-    "mode": "<from Step 4>"
+    "mode": "<from Step 4>",
+    "completeness": null
   },
   "progress": {
     "stages_completed": "<list of completed stage numbers from manifest scan>",
