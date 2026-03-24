@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: in_progress
-stopped_at: Completed 13-01-PLAN.md
-last_updated: "2026-03-24T20:14:44Z"
-last_activity: 2026-03-25 -- Completed 13-01 Upgrade infrastructure files
+status: completed
+stopped_at: Completed 13-02-PLAN.md
+last_updated: "2026-03-24T20:20:11.293Z"
+last_activity: 2026-03-25 -- Completed 13-02 Wiring upgrade into Session Start
 progress:
   total_phases: 5
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 6
-  completed_plans: 5
-  percent: 83
+  completed_plans: 6
+  percent: 100
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-24)
 
 **Core value:** 개발 과정 산출물이 AI의 외부 메모리 역할을 하여, 재작업과 맥락 유실을 근본적으로 방지한다.
-**Current focus:** v2.0 Milestone -- Phase 13: Lifecycle Upgrade
+**Current focus:** v2.0 Milestone -- Phase 13 complete, ready for Phase 14
 
 ## Current Position
 
-Phase: 13 - Lifecycle Upgrade (in progress)
-Plan: 1 of 2 (13-01 complete)
-Status: Plan 13-01 complete, 13-02 pending
-Last activity: 2026-03-25 -- Completed 13-01 Upgrade infrastructure files
+Phase: 13 - Lifecycle Upgrade (complete)
+Plan: 2 of 2 (all complete)
+Status: Phase 13 complete
+Last activity: 2026-03-25 -- Completed 13-02 Wiring upgrade into Session Start
 
-Progress: [████████░░] 83% (5/6 plans across v2.0)
+Progress: [██████████] 100% (6/6 plans across v2.0)
 
 ## Performance Metrics
 
@@ -62,6 +62,7 @@ Progress: [████████░░] 83% (5/6 plans across v2.0)
 | Phase 12-iteration P01 | 2min | 2 tasks | 2 files |
 | Phase 12-iteration P02 | 2min | 2 tasks | 4 files |
 | Phase 13-upgrade P01 | 2min | 2 tasks | 3 files |
+| Phase 13 P02 | 2min | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -86,6 +87,8 @@ Recent decisions affecting current work:
 - [Phase 13-01]: Migration markers use dot-prefixed files (.v2-migrated, .dlc-version) for hidden filesystem convention
 - [Phase 13-01]: State reconcile runs before migration when state.json missing (ordered dependency)
 - [Phase 13-01]: Backup directory (.upgrade-backup/) cleaned in both success and failure paths
+- [Phase 13]: Version check as step 1b in Session Start for clear sequential visibility
+- [Phase 13]: Upgrade section uses Read directives only, no inline migration logic in SKILL.md
 
 ### v1.0 Key Decisions (preserved for context)
 
@@ -106,6 +109,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-24T20:14:44Z
-Stopped at: Completed 13-01-PLAN.md
-Resume file: .planning/phases/13-lifecycle-upgrade/13-01-SUMMARY.md
+Last session: 2026-03-24T20:20:11.291Z
+Stopped at: Completed 13-02-PLAN.md
+Resume file: None

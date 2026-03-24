@@ -80,7 +80,7 @@
 - [x] **UPGR-01**: User can upgrade dev-lifecycle via git pull with automatic schema migration of .lifecycle/ files
 - [x] **UPGR-02**: Migration markers (.lifecycle/.v2-migrated etc.) prevent re-running completed migrations
 - [x] **UPGR-03**: Failed migration can be rolled back to pre-upgrade state
-- [ ] **UPGR-04**: Upgrade shows changelog summary of what changed
+- [x] **UPGR-04**: Upgrade shows changelog summary of what changed
 
 ### Observability
 
@@ -187,7 +187,7 @@
 | UPGR-01 | Phase 13 | Complete |
 | UPGR-02 | Phase 13 | Complete |
 | UPGR-03 | Phase 13 | Complete |
-| UPGR-04 | Phase 13 | Pending |
+| UPGR-04 | Phase 13 | Complete |
 | OBSV-01 | Phase 14 | Pending |
 | OBSV-02 | Phase 14 | Pending |
 | OBSV-03 | Phase 14 | Pending |

@@ -20,7 +20,7 @@
 - [x] ~~Phase 1-10: v1.0 Foundation through Architecture~~ (all complete)
 - [x] **Phase 11: Configuration** - File-based lifecycle-config with layered settings and change tracking (completed 2026-03-23)
 - [x] **Phase 12: Stage-Internal Iteration** - Mini-verify loops in DO, Completeness scoring, decision comparison (completed 2026-03-24)
-- [ ] **Phase 13: Lifecycle Upgrade** - Schema migration, migration markers, rollback, changelog
+- [x] **Phase 13: Lifecycle Upgrade** - Schema migration, migration markers, rollback, changelog (completed 2026-03-24)
 - [ ] **Phase 14: Observability & Analytics** - Session tracking, stage transition logs, rework events, snapshot diff, time metrics
 - [ ] **Phase 15: Ecosystem Integration** - gstack skill suggestions at stage transitions, opt-out, extensible mapping
 
@@ -103,6 +103,6 @@ Note: Phase 13 (Upgrade) depends on Phase 11 but is otherwise independent of Pha
 | 1-10. v1.0 | 20/20 | Complete | 2026-03-22 |
 | 11. Configuration | 2/2 | Complete    | 2026-03-23 |
 | 12. Stage-Internal Iteration | 2/2 | Complete    | 2026-03-24 |
-| 13. Lifecycle Upgrade | 1/2 | In Progress|  |
+| 13. Lifecycle Upgrade | 2/2 | Complete   | 2026-03-24 |
 | 14. Observability & Analytics | 0/? | Not started | - |
 | 15. Ecosystem Integration | 0/? | Not started | - |
