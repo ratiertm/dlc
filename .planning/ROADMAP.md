@@ -77,7 +77,10 @@ Plans:
   3. Backward stage transitions (rework) are tracked in .lifecycle/analytics/rework-events.jsonl with reason and impact
   4. User can generate a before/after snapshot diff comparing the original spec baseline against the current implementation delta
   5. Time-per-stage metrics are recorded and available so the user can identify bottleneck stages
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [ ] 14-01-PLAN.md — Create observability reference file (session context, JSONL analytics, rework tracking, spec diff, time metrics)
+- [ ] 14-02-PLAN.md — Wire observability into SKILL.md, stage-transitions.md, and plan-stage.md
 
 ### Phase 15: Ecosystem Integration
 **Goal**: Stage transitions proactively suggest relevant companion skills, with user control over suggestion behavior and an extensible skill mapping
@@ -104,5 +107,5 @@ Note: Phase 13 (Upgrade) depends on Phase 11 but is otherwise independent of Pha
 | 11. Configuration | 2/2 | Complete    | 2026-03-23 |
 | 12. Stage-Internal Iteration | 2/2 | Complete    | 2026-03-24 |
 | 13. Lifecycle Upgrade | 2/2 | Complete    | 2026-03-24 |
-| 14. Observability & Analytics | 0/? | Not started | - |
+| 14. Observability & Analytics | 0/2 | Not started | - |
 | 15. Ecosystem Integration | 0/? | Not started | - |
