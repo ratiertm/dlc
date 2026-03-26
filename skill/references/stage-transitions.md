@@ -111,6 +111,19 @@ When transitioning from Stage N to Stage N+1:
      "mode": "feature|hotfix|release|milestone"
    }
    ```
+5b. **Append analytics JSONL** (Read: `$CLAUDE_SKILL_DIR/references/observability.md` Section "Stage Transition Analytics"):
+   - Create `.lifecycle/analytics/` directory if not exists
+   - Compute `duration_in_stage_seconds`: current timestamp minus `progress.current_stage_started_at` (integer seconds)
+   - Determine `direction`: "forward" if to_stage > from_stage, "backward" if to_stage < from_stage, "skip" if auto-skipped
+   - Append one JSON line to `.lifecycle/analytics/stage-transitions.jsonl`:
+     ```json
+     {"timestamp":"{ISO}","feature":"{name}","from_stage":{N},"from_name":"{NAME}","to_stage":{M},"to_name":"{NAME}","direction":"{forward|backward|skip}","mode":"{mode}","gate_result":"{result}","duration_in_stage_seconds":{seconds}}
+     ```
+   - Non-blocking: if write fails, warn and continue transition
+5c. **Suggest companion skills** (Read: `$CLAUDE_SKILL_DIR/references/ecosystem-suggestions.md`):
+   - Resolve `proactive` setting (env > config.yaml > default=true). If false, skip.
+   - Look up entering stage in Suggestion Mapping table
+   - Present suggestions (non-blocking, informational only)
 6. **Update Living State** -- After successful transition, regenerate `.lifecycle/LIVING-STATE.md`:
    - Read current `state.json` for stage/status/feature/mode
    - Read last 20 entries from `.lifecycle/settings-changelog.md` (if exists)
@@ -129,6 +142,11 @@ Stages can move backward (e.g., TEST -> DO when tests fail). Backward transition
 - Reset the target stage status to `in_progress`
 - Remove the target stage from `stages_completed` if present
 - Record the backward transition in history with reason
+- Append rework event to `.lifecycle/analytics/rework-events.jsonl` (Read: `$CLAUDE_SKILL_DIR/references/observability.md` Section "Rework Event Tracking"):
+  ```json
+  {"timestamp":"{ISO}","feature":"{name}","from_stage":{N},"from_name":"{NAME}","to_stage":{M},"to_name":"{NAME}","reason":"{reason}","impact":"{what needs redo}","rework_count":{count}}
+  ```
+  Where `rework_count` = number of existing rework entries for this feature + 1
 
 ## Artifact Output Entry Format
 

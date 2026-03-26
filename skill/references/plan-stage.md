@@ -218,7 +218,13 @@ For each spec step, create the corresponding HTML element:
    - Return to step 1 of this gate (re-announce, re-instruct)
 
 7. **IF user approves** (says "OK", "approved", "looks good", "yes", etc.):
-   - Proceed to Artifact Registration (below)
+   - Proceed to Spec Baseline Snapshot (step 4b), then Artifact Registration
+
+**4b. Spec Baseline Snapshot** (Read: `$CLAUDE_SKILL_DIR/references/observability.md` Section "Spec Baseline & Diff"):
+   - Create `.lifecycle/analytics/spec-baselines/` directory if not exists
+   - If `.lifecycle/analytics/spec-baselines/{feature}.baseline.md` does NOT exist:
+     - Copy `.lifecycle/features/{feature}/spec.md` to `.lifecycle/analytics/spec-baselines/{feature}.baseline.md`
+   - If baseline already exists: skip (preserve original baseline)
 
 **CRITICAL: MUST NOT set `1_plan.completed_at` until user says words equivalent to approval. No auto-completion. No "looks like it's good enough." The user's explicit approval is the gate.**
 

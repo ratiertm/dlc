@@ -84,17 +84,17 @@
 
 ### Observability
 
-- [ ] **OBSV-01**: Each session creates a context file in .lifecycle/sessions/ with decisions and artifacts touched
-- [ ] **OBSV-02**: Stage transitions are logged to .lifecycle/analytics/stage-transitions.jsonl with timestamps
-- [ ] **OBSV-03**: Rework events (backward stage transitions) are tracked in .lifecycle/analytics/rework-events.jsonl
-- [ ] **OBSV-04**: Before/after snapshot diff compares spec baseline against implementation delta
-- [ ] **OBSV-05**: Time-per-stage metrics are available for bottleneck identification
+- [x] **OBSV-01**: Each session creates a context file in .lifecycle/sessions/ with decisions and artifacts touched
+- [x] **OBSV-02**: Stage transitions are logged to .lifecycle/analytics/stage-transitions.jsonl with timestamps
+- [x] **OBSV-03**: Rework events (backward stage transitions) are tracked in .lifecycle/analytics/rework-events.jsonl
+- [x] **OBSV-04**: Before/after snapshot diff compares spec baseline against implementation delta
+- [x] **OBSV-05**: Time-per-stage metrics are available for bottleneck identification
 
 ### Ecosystem
 
-- [ ] **ECOS-01**: Stage transitions suggest relevant gstack/companion skills (review at COMMIT, qa at TEST, investigate at DO)
-- [ ] **ECOS-02**: Proactive suggestions can be disabled via proactive: false in config
-- [ ] **ECOS-03**: Skill suggestion mapping is documented and extensible (new skills can be added to the map)
+- [x] **ECOS-01**: Stage transitions suggest relevant gstack/companion skills (review at COMMIT, qa at TEST, investigate at DO)
+- [x] **ECOS-02**: Proactive suggestions can be disabled via proactive: false in config
+- [x] **ECOS-03**: Skill suggestion mapping is documented and extensible (new skills can be added to the map)
 
 ## v3 Requirements (Deferred)
 
@@ -188,14 +188,14 @@
 | UPGR-02 | Phase 13 | Complete |
 | UPGR-03 | Phase 13 | Complete |
 | UPGR-04 | Phase 13 | Complete |
-| OBSV-01 | Phase 14 | Pending |
-| OBSV-02 | Phase 14 | Pending |
-| OBSV-03 | Phase 14 | Pending |
-| OBSV-04 | Phase 14 | Pending |
-| OBSV-05 | Phase 14 | Pending |
-| ECOS-01 | Phase 15 | Pending |
-| ECOS-02 | Phase 15 | Pending |
-| ECOS-03 | Phase 15 | Pending |
+| OBSV-01 | Phase 14 | Complete |
+| OBSV-02 | Phase 14 | Complete |
+| OBSV-03 | Phase 14 | Complete |
+| OBSV-04 | Phase 14 | Complete |
+| OBSV-05 | Phase 14 | Complete |
+| ECOS-01 | Phase 15 | Complete |
+| ECOS-02 | Phase 15 | Complete |
+| ECOS-03 | Phase 15 | Complete |
 
 **v2.0 Coverage:**
 - v2 requirements: 19 total

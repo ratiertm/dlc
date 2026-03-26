@@ -21,8 +21,8 @@
 - [x] **Phase 11: Configuration** - File-based lifecycle-config with layered settings and change tracking (completed 2026-03-23)
 - [x] **Phase 12: Stage-Internal Iteration** - Mini-verify loops in DO, Completeness scoring, decision comparison (completed 2026-03-24)
 - [x] **Phase 13: Lifecycle Upgrade** - Schema migration, migration markers, rollback, changelog (completed 2026-03-24)
-- [ ] **Phase 14: Observability & Analytics** - Session tracking, stage transition logs, rework events, snapshot diff, time metrics
-- [ ] **Phase 15: Ecosystem Integration** - gstack skill suggestions at stage transitions, opt-out, extensible mapping
+- [x] **Phase 14: Observability & Analytics** - Session tracking, stage transition logs, rework events, snapshot diff, time metrics (completed 2026-03-27)
+- [x] **Phase 15: Ecosystem Integration** - gstack skill suggestions at stage transitions, opt-out, extensible mapping (completed 2026-03-27)
 
 ## Phase Details
 
@@ -90,7 +90,10 @@ Plans:
   1. At each stage transition, the system suggests relevant gstack/companion skills (e.g., review at COMMIT, qa at TEST, investigate at DO)
   2. User can disable all proactive suggestions by setting proactive: false in lifecycle-config
   3. The skill suggestion mapping is documented in a reference file and extensible (new skills can be added without modifying core logic)
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [x] 15-01-PLAN.md — Create ecosystem-suggestions.md reference (skill mapping, suggestion logic, proactive control, extensibility)
+- [x] 15-02-PLAN.md — Wire ecosystem into SKILL.md and stage-transitions.md (section, step 5c, architecture audit)
 
 ## Progress
 
@@ -107,5 +110,5 @@ Note: Phase 13 (Upgrade) depends on Phase 11 but is otherwise independent of Pha
 | 11. Configuration | 2/2 | Complete    | 2026-03-23 |
 | 12. Stage-Internal Iteration | 2/2 | Complete    | 2026-03-24 |
 | 13. Lifecycle Upgrade | 2/2 | Complete    | 2026-03-24 |
-| 14. Observability & Analytics | 0/2 | Not started | - |
-| 15. Ecosystem Integration | 0/? | Not started | - |
+| 14. Observability & Analytics | 2/2 | Complete    | 2026-03-27 |
+| 15. Ecosystem Integration | 2/2 | Complete    | 2026-03-27 |
